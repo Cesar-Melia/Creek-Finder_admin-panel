@@ -1,13 +1,17 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { CreekRoutingModule } from './creek-routing.module';
+import { CreekRoutingModule } from './creeks-routing.module';
 import { CreateCreekComponent } from './create-creek/create-creek.component';
+import { UpdateCreekComponent } from './update-creek/update-creek.component';
+import { DeleteCreekComponent } from './delete-creek/delete-creek.component';
 
 
 @NgModule({
   declarations: [
-    CreateCreekComponent
+    CreateCreekComponent,
+    UpdateCreekComponent,
+    DeleteCreekComponent
   ],
   imports: [
     CommonModule,
