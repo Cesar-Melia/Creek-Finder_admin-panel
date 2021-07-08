@@ -1,0 +1,23 @@
+.c-menu {
+  height: 100vh;
+  width: 165px;
+  padding: 20px;
+  background-color: var(--color-blue-logo);
+  color: var(--color-warm-white);
+
+  a {
+    color: var(--color-warm-white);
+
+    &:hover {
+      color: var(--color-blue);
+    }
+  }
+
+  &__active {
+    color: var(--color-blue);
+  }
+
+  &__title {
+    margin-top: 20px;
+  }
+}
