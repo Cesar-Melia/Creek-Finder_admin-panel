@@ -1,8 +1,63 @@
-<nav class="c-header">
-  <span [ngClass]="{'d-none': mobileScreen === false}"></span>
-  <div>
+<header class="c-header">
+  <div class="c-header__block">
+    <span class="c-header__menu-icon" (click)="activateMenu()">ICONO</span>
+    <nav class="c-header__mobile-menu"
+      [ngClass]="{ 'd-none': menuActive === false }">
+      <ul class="c-header__users-list">
+        <li>
+          <a routerLink="/users/create-user" routerLinkActive="c-header__active"
+            (click)="activateMenu()">Crear Usuario</a>
+        </li>
+        <li>
+          <a routerLink="/users/update-user" routerLinkActive="c-header__active"
+            (click)="activateMenu()">Editar Usuario</a>
+        </li>
+        <li>
+          <a routerLink="/users/delete-user" routerLinkActive="c-header__active"
+            (click)="activateMenu()">Borrar Usuario</a>
+        </li>
+      </ul>
+      <ul class="c-header__creeks-list">
+        <li>
+          <a routerLink="/creeks/create-creek"
+            routerLinkActive="c-header__active" (click)="activateMenu()">Crear
+            Cala</a>
+        </li>
+        <li>
+          <a routerLink="/creeks/update-creek"
+            routerLinkActive="c-header__active" (click)="activateMenu()">Editar
+            Calak</a>
+        </li>
+        <li>
+          <a routerLink="/creeks/delete-creek"
+            routerLinkActive="c-header__active" (click)="activateMenu()">Borrar
+            Cala</a>
+        </li>
+      </ul>
+      <ul class="c-header__comments-list">
+        <li>
+          <a routerLink="/comments/create-comment"
+            routerLinkActive="c-header__active" (click)="activateMenu()">Crear
+            Comentario</a>
+        </li>
+        <li>
+          <a routerLink="/comments/update-comment"
+            routerLinkActive="c-header__active" (click)="activateMenu()">Editar
+            Comentario</a>
+        </li>
+        <li>
+          <a routerLink="/comments/delete-comment"
+            routerLinkActive="c-header__active" (click)="activateMenu()">Borrar
+            Comentario</a>
+        </li>
+      </ul>
+    </nav>
 
-    <a>Iniciar Sesión</a>
-    <a>Salir de Sesión</a>
+    <nav class="c-header__auth">
+      <a class="c-header__auth-link"
+        [ngClass]="{ 'd-none': isAuth === true }">Iniciar Sesión</a>
+      <a class="c-header__auth-link"
+        [ngClass]="{ 'd-none': isAuth === false }">Salir de Sesión</a>
+    </nav>
   </div>
-</nav>
+</header>
