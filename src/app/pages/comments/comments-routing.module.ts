@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { CreateCommentComponent } from './create-comment/create-comment.component';
-import { DeleteCommentComponent } from './delete-comment/delete-comment.component';
-import { UpdateCommentComponent } from './update-comment/update-comment.component';
+import { CreateCommentComponent } from './components/create-comment/create-comment.component';
+import { DeleteCommentComponent } from './components/delete-comment/delete-comment.component';
+import { UpdateCommentComponent } from './components/update-comment/update-comment.component';
 
 const routes: Routes = [
   { path: 'create-comment', component: CreateCommentComponent },

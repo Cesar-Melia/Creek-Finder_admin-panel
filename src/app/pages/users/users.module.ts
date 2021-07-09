@@ -2,20 +2,18 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { UsersRoutingModule } from './users-routing.module';
-import { CreateUserComponent } from './create-user/create-user.component';
-import { DeleteUserComponent } from './delete-user/delete-user.component';
-import { UpdateUserComponent } from './update-user/update-user.component';
-
+import { CreateUserComponent } from './components/create-user/create-user.component';
+import { DeleteUserComponent } from './components/delete-user/delete-user.component';
+import { UpdateUserComponent } from './components/update-user/update-user.component';
+import { UsersComponent } from './components/users/users.component';
 
 @NgModule({
   declarations: [
     CreateUserComponent,
     DeleteUserComponent,
-    UpdateUserComponent
+    UpdateUserComponent,
+    UsersComponent,
   ],
-  imports: [
-    CommonModule,
-    UsersRoutingModule
-  ]
+  imports: [CommonModule, UsersRoutingModule],
 })
-export class UsersModule { }
+export class UsersModule {}
