@@ -3,8 +3,10 @@ import { RouterModule, Routes } from '@angular/router';
 import { CreateCreekComponent } from './components/create-creek/create-creek.component';
 import { UpdateCreekComponent } from './components/update-creek/update-creek.component';
 import { DeleteCreekComponent } from './components/delete-creek/delete-creek.component';
+import { CreeksComponent } from './components/creeks.component';
 
 const routes: Routes = [
+  { path: '', component: CreeksComponent },
   { path: 'create-creek', component: CreateCreekComponent },
   { path: 'update-creek', component: UpdateCreekComponent },
   { path: 'delete-creek', component: DeleteCreekComponent },

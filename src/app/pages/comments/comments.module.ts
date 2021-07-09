@@ -5,12 +5,14 @@ import { CommentsRoutingModule } from './comments-routing.module';
 import { CreateCommentComponent } from './components/create-comment/create-comment.component';
 import { UpdateCommentComponent } from './components/update-comment/update-comment.component';
 import { DeleteCommentComponent } from './components/delete-comment/delete-comment.component';
+import { CommentsComponent } from './components/comments.component';
 
 @NgModule({
   declarations: [
     CreateCommentComponent,
     UpdateCommentComponent,
     DeleteCommentComponent,
+    CommentsComponent,
   ],
   imports: [CommonModule, CommentsRoutingModule],
 })
