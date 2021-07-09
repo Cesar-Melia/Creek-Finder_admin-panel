@@ -5,6 +5,10 @@
   background-color: var(--color-blue-logo);
   color: var(--color-warm-white);
 
+  &__item {
+    margin-bottom: 15px;
+  }
+
   a {
     color: var(--color-warm-white);
 

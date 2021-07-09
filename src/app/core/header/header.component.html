@@ -1,8 +1,7 @@
 <header class="c-header">
   <div class="c-header__block">
     <span class="c-header__menu-icon" (click)="activateMenu()">ICONO</span>
-    <nav class="c-header__mobile-menu"
-      [ngClass]="{ 'd-none': menuActive === false }">
+    <nav class="c-header__mobile-menu" [ngClass]="{ 'd-none': menuActive === false }">
       <ul class="c-header__users-list">
         <li>
           <a routerLink="/users/create-user" routerLinkActive="c-header__active"
@@ -19,45 +18,43 @@
       </ul>
       <ul class="c-header__creeks-list">
         <li>
-          <a routerLink="/creeks/create-creek"
-            routerLinkActive="c-header__active" (click)="activateMenu()">Crear
+          <a routerLink="/creeks/create-creek" routerLinkActive="c-header__active"
+            (click)="activateMenu()">Crear
             Cala</a>
         </li>
         <li>
-          <a routerLink="/creeks/update-creek"
-            routerLinkActive="c-header__active" (click)="activateMenu()">Editar
+          <a routerLink="/creeks/update-creek" routerLinkActive="c-header__active"
+            (click)="activateMenu()">Editar
             Calak</a>
         </li>
         <li>
-          <a routerLink="/creeks/delete-creek"
-            routerLinkActive="c-header__active" (click)="activateMenu()">Borrar
+          <a routerLink="/creeks/delete-creek" routerLinkActive="c-header__active"
+            (click)="activateMenu()">Borrar
             Cala</a>
         </li>
       </ul>
       <ul class="c-header__comments-list">
         <li>
-          <a routerLink="/comments/create-comment"
-            routerLinkActive="c-header__active" (click)="activateMenu()">Crear
+          <a routerLink="/comments/create-comment" routerLinkActive="c-header__active"
+            (click)="activateMenu()">Crear
             Comentario</a>
         </li>
         <li>
-          <a routerLink="/comments/update-comment"
-            routerLinkActive="c-header__active" (click)="activateMenu()">Editar
+          <a routerLink="/comments/update-comment" routerLinkActive="c-header__active"
+            (click)="activateMenu()">Editar
             Comentario</a>
         </li>
         <li>
-          <a routerLink="/comments/delete-comment"
-            routerLinkActive="c-header__active" (click)="activateMenu()">Borrar
+          <a routerLink="/comments/delete-comment" routerLinkActive="c-header__active"
+            (click)="activateMenu()">Borrar
             Comentario</a>
         </li>
       </ul>
     </nav>
 
     <nav class="c-header__auth">
-      <a class="c-header__auth-link"
-        [ngClass]="{ 'd-none': isAuth === true }">Iniciar Sesión</a>
-      <a class="c-header__auth-link"
-        [ngClass]="{ 'd-none': isAuth === false }">Salir de Sesión</a>
+      <a class="c-header__auth-link" [ngClass]="{ 'd-none': isAuth === true }">Iniciar Sesión</a>
+      <a class="c-header__auth-link" [ngClass]="{ 'd-none': isAuth === false }">Salir de Sesión</a>
     </nav>
   </div>
 </header>

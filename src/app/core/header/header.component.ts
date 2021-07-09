@@ -6,10 +6,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent implements OnInit {
-  menuActive: boolean = false;
-  isAuth: boolean = false;
+  menuActive: boolean;
+  isAuth: boolean;
 
-  constructor() {}
+  constructor() {
+    this.menuActive = false;
+    this.isAuth = false;
+  }
 
   ngOnInit(): void {}
 
