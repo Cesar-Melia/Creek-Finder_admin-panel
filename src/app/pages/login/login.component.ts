@@ -25,10 +25,11 @@ export class LoginComponent implements OnInit {
 
   submitForm(): void {
     console.log('Campos formulario: ', this.loginForm);
-    console.log('Campo email: ', this.loginForm.email);
+    console.log('Campo email: ', this.loginForm.value.email);
+    console.log('Campo password: ', this.loginForm.value.password);
 
     this.authService
-      .login(this.loginForm.email, this.loginForm.password)
+      .login(this.loginForm.value.email, this.loginForm.value.password)
       .subscribe((loginData: any) => {
         console.log('Usuario logueado: ', loginData);
       });

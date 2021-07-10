@@ -1,6 +1,9 @@
 <header class="c-header">
   <div class="c-header__block">
     <span class="c-header__menu-icon" (click)="activateMenu()">ICONO</span>
+    <img class="c-header__menu-logo" routerLink="/" routerLinkActiveOptions="{exact:true}"
+      src="../../../../assets/images/logo/logo_beach_300.png">
+
     <nav class="c-header__mobile-menu" [ngClass]="{ 'd-none': menuActive === false }">
       <ul class="c-header__users-list">
         <li>

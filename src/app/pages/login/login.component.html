@@ -1,10 +1,21 @@
-<form [formGroup]="loginForm" (submit)="submitForm()" class="">
-  <div class="">
-    <label for="email">email</label>
-    <input formControlName="email" type="email" id="email" class="" placeholder="Email">
+<div className='login-container'>
+  <div className='login-container__main'>
+    <h2>Login</h2>
+    <form [formGroup]="loginForm" (submit)="submitForm()" class="login-container__form">
+      <div class="">
+        <label for="email">
+          <p>Email</p>
+          <input formControlName="email" type="email" id="email" class="" placeholder="Email">
+        </label>
+      </div>
+      <div class="">
+        <label for="password">
+          <p>Password</p>
+          <input formControlName="password" type="password" id="password" class=""
+            placeholder="Password">
+        </label>
+      </div>
+      <input class="" type="submit">
+    </form>
   </div>
-  <div class="">
-    <label for="password">password</label>
-    <input formControlName="password" type="password" id="password" class="" placeholder="password">
-  </div>
-</form>
+</div>
