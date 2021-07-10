@@ -1,5 +1,5 @@
 export const environment = {
   production: true,
 
-  DB_URL: 'https://creek-finder.herokuapp.com/',
+  API_URL: 'https://creek-finder.herokuapp.com/',
 };

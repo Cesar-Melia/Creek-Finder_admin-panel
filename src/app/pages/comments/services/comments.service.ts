@@ -1,18 +1,20 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { environment } from '../../../../environments/environment';
+import { Observable } from 'rxjs';
+import { Comment } from '../../comments/models/Comment';
 
 @Injectable({
   providedIn: 'any',
 })
-export class CreeksService {
-  DB_URL: string;
+export class CommentsService {
+  API_URL: string;
 
   constructor(private http: HttpClient) {
-    this.DB_URL = environment.DB_URL;
+    this.API_URL = environment.API_URL;
   }
 
-  getComments(): any {
-    return this.http.get(`${this.DB_URL}/comments`);
+  getComments(): Observable<Comment[]> {
+    return this.http.get<Comment[]>(`${this.API_URL}/comments`);
   }
 }

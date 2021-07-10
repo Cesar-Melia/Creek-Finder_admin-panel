@@ -6,6 +6,7 @@ import { CreateCreekComponent } from './pages/create-creek/create-creek.componen
 import { UpdateCreekComponent } from './pages/update-creek/update-creek.component';
 import { DeleteCreekComponent } from './pages/delete-creek/delete-creek.component';
 import { CreeksComponent } from './creeks.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -14,6 +15,6 @@ import { CreeksComponent } from './creeks.component';
     DeleteCreekComponent,
     CreeksComponent,
   ],
-  imports: [CommonModule, CreekRoutingModule],
+  imports: [CommonModule, CreekRoutingModule, HttpClientModule],
 })
 export class CreekModule {}

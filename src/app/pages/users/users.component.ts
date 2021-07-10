@@ -19,7 +19,7 @@ export class UsersComponent implements OnInit {
     this.usersService.getUsers().subscribe((usersData: any) => {
       console.log('Resultado petición API: ', usersData);
 
-      this.users = usersData.results;
+      this.users = usersData;
     });
   }
 }
