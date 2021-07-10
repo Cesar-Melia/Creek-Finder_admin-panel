@@ -1,13 +1,18 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { environment } from '../../../../environments/environment';
 
 @Injectable({
-  providedIn: 'root',
+  providedIn: 'any',
 })
 export class UsersService {
-  constructor(private http: HttpClient) {}
+  DB_URL: string;
 
-  getUsers() {
-    return this.http.get('https://rickandmortyapi.com/api/character');
+  constructor(private http: HttpClient) {
+    this.DB_URL = environment.DB_URL;
+  }
+
+  getUsers(): any {
+    return this.http.get(`${this.DB_URL}/users`);
   }
 }
