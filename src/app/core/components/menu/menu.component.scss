@@ -1,9 +1,13 @@
 .c-menu {
   height: 100%;
   width: 165px;
-  padding: 20px;
+  padding: 50px 20px 20px 20px;
   background-color: var(--color-blue-logo);
   color: var(--color-warm-white);
+
+  @media (max-width: 992px) {
+    display: none;
+  }
 
   &__item {
     margin-bottom: 15px;

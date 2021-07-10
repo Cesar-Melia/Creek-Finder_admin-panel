@@ -1,6 +1,9 @@
 <header class="c-header">
   <div class="c-header__block">
     <span class="c-header__menu-icon" (click)="activateMenu()">ICONO</span>
+    <img class="c-header__menu-logo" routerLink="/" routerLinkActiveOptions="{exact:true}"
+      src="../../../../assets/images/logo/logo_beach_300.png">
+
     <nav class="c-header__mobile-menu" [ngClass]="{ 'd-none': menuActive === false }">
       <ul class="c-header__users-list">
         <li>
@@ -53,7 +56,8 @@
     </nav>
 
     <nav class="c-header__auth">
-      <a class="c-header__auth-link" [ngClass]="{ 'd-none': isAuth === true }">Iniciar Sesión</a>
+      <a routerLink="/login" class="c-header__auth-link"
+        [ngClass]="{ 'd-none': isAuth === true }">Iniciar Sesión</a>
       <a class="c-header__auth-link" [ngClass]="{ 'd-none': isAuth === false }">Salir de Sesión</a>
     </nav>
   </div>
