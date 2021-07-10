@@ -53,7 +53,8 @@
     </nav>
 
     <nav class="c-header__auth">
-      <a class="c-header__auth-link" [ngClass]="{ 'd-none': isAuth === true }">Iniciar Sesión</a>
+      <a routerLink="/login" class="c-header__auth-link"
+        [ngClass]="{ 'd-none': isAuth === true }">Iniciar Sesión</a>
       <a class="c-header__auth-link" [ngClass]="{ 'd-none': isAuth === false }">Salir de Sesión</a>
     </nav>
   </div>
