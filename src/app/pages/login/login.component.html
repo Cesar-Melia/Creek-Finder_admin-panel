@@ -1,21 +1,11 @@
-<div className='login-container'>
-  <div className='login-container__main'>
-    <h2>Login</h2>
-    <form [formGroup]="loginForm" (submit)="submitForm()" class="login-container__form">
-      <div class="">
-        <label for="email">
-          <p>Email</p>
-          <input formControlName="email" type="email" id="email" class="" placeholder="Email">
-        </label>
-      </div>
-      <div class="">
-        <label for="password">
-          <p>Password</p>
-          <input formControlName="password" type="password" id="password" class=""
-            placeholder="Password">
-        </label>
-      </div>
-      <input class="" type="submit">
-    </form>
-  </div>
-</div>
+<form [formGroup]="loginForm" (submit)="submitForm()" class="c-login">
+  <label for="email" class="c-login__block">
+    <p>Email</p>
+    <input formControlName="email" type="email" id="email" class="" placeholder="Email">
+  </label>
+  <label for="password" class="c-login__block">
+    <p>Password</p>
+    <input formControlName="password" type="password" id="password" class="" placeholder="Password">
+  </label>
+  <input class="" type="submit" value="Login">
+</form>
