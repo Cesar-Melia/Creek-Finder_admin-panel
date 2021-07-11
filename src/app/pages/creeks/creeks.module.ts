@@ -7,7 +7,7 @@ import { UpdateCreekComponent } from './pages/update-creek/update-creek.componen
 import { DeleteCreekComponent } from './pages/delete-creek/delete-creek.component';
 import { CreeksComponent } from './creeks.component';
 import { HttpClientModule } from '@angular/common/http';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -16,6 +16,12 @@ import { FormsModule } from '@angular/forms';
     DeleteCreekComponent,
     CreeksComponent,
   ],
-  imports: [CommonModule, CreekRoutingModule, HttpClientModule, FormsModule],
+  imports: [
+    CommonModule,
+    CreekRoutingModule,
+    HttpClientModule,
+    ReactiveFormsModule,
+    FormsModule,
+  ],
 })
 export class CreekModule {}
