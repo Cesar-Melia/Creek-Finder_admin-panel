@@ -13,14 +13,14 @@ export class DeleteUserComponent implements OnInit {
 
   constructor(
     private formBuilder: FormBuilder,
-    private deletUserService: UsersService
+    private deletUserService: UsersService,
+
   ) {
     this.deleteUserForm = this.formBuilder.group({
       id: ['', [Validators.required]],
       userName: ['', [Validators.required]],
-
-
     });
+
   }
 
   ngOnInit(): void {

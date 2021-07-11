@@ -1,14 +1,33 @@
-<form class="b-form">
+<form (submit)="submitCreateUserForm($event)" class="b-form">
   <label for="email" class="b-form__block">
     <p>Buscar usuario por id</p>
-    <input formControlName="id" type="text" id="id" class="" placeholder="Id de usuario">
+    <input name="id" type="text" id="id" class="" placeholder="Id de usuario">
   </label>
-  <label for="email" class="b-form__block">
-    <p>Buscar usuario por nombre</p>
-    <input formControlName="userName" type="text" id="userName" class="" placeholder="Nombre de usuario">
-  </label>
-  <input class="" type="submit" value="Editar usuario">
+  <input class="" type="submit" value="Buscar usuario">
 </form>
 
+<section class="c-users__results">
+  <div *ngIf="isThereUser" class="c-users__item">
 
-<!-- [formGroup]="CreateUserForm" (submit)="submitCreateUserForm()" -->
+    <form class="b-form">
+
+      <label for="userName" class="b-form__block">
+        <p>Nombre de Usuario</p>
+        <input value="{{userToUpdate.userName}}" type="text" id="userName" class="" placeholder="Nombre de usuario">
+      </label>
+      <label for="email" class="b-form__block">
+        <p>Email</p>
+        <input value="{{userToUpdate.email}}" type="email" id="email" class="" placeholder="Email">
+      </label>
+      <label for="password" class="b-form__block">
+        <p>Contraseña</p>
+        <input value="{{userToUpdate.password}}" type="text" id="password" class="" placeholder="Password">
+      </label>
+      <label for="role" class="b-form__block">
+        <p>Role</p>
+        <input value="{{userToUpdate.role}}" type="text" id="role" class="" placeholder="Role">
+      </label>
+      <input class="" type="submit" value="Editar Usuario">
+    </form>
+  </div>
+</section>
