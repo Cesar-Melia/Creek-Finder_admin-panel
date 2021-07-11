@@ -1,1 +1,25 @@
-<p>comments works!</p>
+<form class="b-filter-form">
+    <div class="b-filter-form__inputs">
+
+        <input [(ngModel)]="filter.creekName" (input)="filterComment()" type="text" id="creekName" name="creekName"
+            class="b-filter-form__input" placeholder="creek">
+
+
+    </div>
+</form>
+
+<section class="c-comments__results">
+    <div *ngFor="let comment of filteredComments " class="c-comments__item">
+        <div>
+            <span class="c-comments__name">{{comment.creek.name}} </span>
+            <span class="c-comments__province"> {{comment.user.email}} </span>
+            <span class="c-comments__type"> {{comment.text}} </span>
+
+        </div>
+        <div class="c-comments__actions">
+
+            <a routerLink="/comments/update-creek" class="c-comments__link">Delete</a>
+        </div>
+    </div>
+
+</section>

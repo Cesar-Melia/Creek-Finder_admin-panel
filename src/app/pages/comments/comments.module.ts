@@ -7,6 +7,7 @@ import { CreateCommentComponent } from './pages/create-comment/create-comment.co
 import { UpdateCommentComponent } from './pages/update-comment/update-comment.component';
 import { DeleteCommentComponent } from './pages/delete-comment/delete-comment.component';
 import { CommentsComponent } from './comments.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -15,6 +16,6 @@ import { CommentsComponent } from './comments.component';
     DeleteCommentComponent,
     CommentsComponent,
   ],
-  imports: [CommonModule, CommentsRoutingModule, HttpClientModule],
+  imports: [CommonModule, CommentsRoutingModule, HttpClientModule, FormsModule],
 })
 export class CommentsModule {}

@@ -1,0 +1,30 @@
+.c-comments {
+  &__results {
+    margin-top: 30px;
+  }
+
+  &__item {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__name {
+    color: var(--color-blue-logo);
+  }
+
+  &__province {
+    color: var(--color-orange-dark);
+  }
+
+  &__type {
+    color: var(--color-blue-dark);
+  }
+
+  &__actions {
+    // margin-left: 20px;
+  }
+
+  &__link {
+    margin-left: 15px;
+  }
+}

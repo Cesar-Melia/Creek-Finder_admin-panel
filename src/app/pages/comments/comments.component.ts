@@ -10,16 +10,34 @@ import { Comment } from './models/Comment';
 })
 export class CommentsComponent implements OnInit {
   comments: Comment[];
+  filteredComments: Comment[];
+  filter: { creekName: string };
 
   constructor(private commentsService: CommentsService) {
     this.comments = [];
+    this.filteredComments = [];
+    this.filter = { creekName: '' };
   }
 
   ngOnInit(): void {
     this.commentsService.getComments().subscribe((commentsData: any) => {
-      console.log('Resultado petición API: ', commentsData);
+      console.log('Resultado API: ', commentsData);
 
       this.comments = commentsData;
+      this.filteredComments = commentsData;
+    });
+  }
+
+  filterComment(): void {
+    this.filteredComments = this.comments;
+
+    this.filteredComments = this.filteredComments.filter((comment) => {
+      console.log('commentarrio', comment.creek.name);
+      console.log('filter comment', this.filter.creekName);
+
+      return comment.creek.name
+        .toLowerCase()
+        .includes(this.filter.creekName.toLowerCase());
     });
   }
 
