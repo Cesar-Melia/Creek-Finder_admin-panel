@@ -5,7 +5,7 @@
   height: 40px;
   background: linear-gradient(to right, #7df3ed, #91d3f3, #49bfff);
   color: var(--color-blue-logo);
-  position: relative;
+  position: absolute;
 
   &__block {
     display: flex;
@@ -45,14 +45,14 @@
     width: 100%;
     z-index: 1000;
     background-color: var(--color-blue-logo);
-    padding-bottom: 75px;
+    padding: 50px 0;
   }
 
   a {
-    color: var(--color-blue-logo);
+    color: var(--color-warm-white);
 
     &:hover {
-      color: var(--color-blue-dark);
+      color: var(--color-blue);
     }
   }
 

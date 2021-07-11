@@ -1,7 +1,7 @@
 .c-menu {
-  height: 100%;
+  height: calc(100vh - 90px);
   width: 165px;
-  padding: 50px 20px 20px 20px;
+  padding: 90px 20px 0 20px;
   background-color: var(--color-blue-logo);
   color: var(--color-warm-white);
 
@@ -26,6 +26,6 @@
   }
 
   &__title {
-    margin-top: 20px;
+    margin-top: 70px;
   }
 }
