@@ -1,0 +1,28 @@
+.c-creeks {
+  &__results {
+    margin-top: 30px;
+  }
+
+  &__item {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__name {
+    color: var(--color-blue-logo);
+    margin: 0 10px;
+  }
+  &__email {
+    color: var(--color-orange-dark);
+    margin: 0 10px;
+  }
+
+  &__role {
+    color: var(--color-gray);
+    margin: 0 10px;
+  }
+
+  &__link {
+    margin-left: 15px;
+  }
+}
