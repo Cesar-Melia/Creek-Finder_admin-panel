@@ -28,11 +28,15 @@ export class DeleteUserComponent implements OnInit {
   }
 
   submitDeleteUserForm(event: any): void {
-    console.log(event.target.id.value)
-    this.deletUserService.deleteUser(event.target.id.value)
-      .subscribe((deleteUserData: any) => {
-        console.log(deleteUserData)
-      })
+    if (confirm('Estas seguro de querer borrar al usuario?')) {
+      this.deletUserService.deleteUser(event.target.id.value)
+        .subscribe((deleteUserData: any) => {
+          console.log(deleteUserData)
+        })
+
+    }
+    console.log(this.deleteUserForm)
+
   }
 
 }
