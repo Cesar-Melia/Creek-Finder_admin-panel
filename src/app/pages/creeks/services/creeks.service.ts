@@ -21,4 +21,8 @@ export class CreeksService {
   postCreek(newCreek: Creek): any {
     return this.http.post(`${this.API_URL}/creeks/create`, newCreek);
   }
+
+  deleteCreek(creekId: string): any {
+    return this.http.delete(`${this.API_URL}/creeks/delete/${creekId}`);
+  }
 }

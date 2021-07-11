@@ -49,10 +49,7 @@ export class CreeksComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.creeksService.getCreeks().subscribe((creeksData: Creek[]) => {
-      this.creeks = creeksData;
-      this.filteredCreeks = creeksData;
-    });
+    this.getCreeks();
   }
 
   findCreeks(): void {
@@ -70,9 +67,19 @@ export class CreeksComponent implements OnInit {
     });
   }
 
-  delete(event: any): void {
+  getCreeks(): void {
+    this.creeksService.getCreeks().subscribe((creeksData: Creek[]) => {
+      this.creeks = creeksData;
+      this.filteredCreeks = creeksData;
+    });
+  }
+
+  delete(creekId: any): void {
     if (confirm('Estas seguro de querer borrar este Comentario:')) {
-      console.log('evento:', event.target.parentNode);
+      console.log('Id:', creekId);
+      this.creeksService.deleteCreek(creekId).subscribe((creekData: Creek) => {
+        this.getCreeks();
+      });
     }
   }
 
