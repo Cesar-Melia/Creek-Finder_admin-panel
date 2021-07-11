@@ -21,4 +21,8 @@ export class UsersService {
   createUser(newUser: User) {
     return this.http.post(`${this.API_URL}/auth/register`, newUser)
   }
+  deleteUser(userId: string) {
+    console.log('soy el delete', userId);
+    return this.http.delete(`${this.API_URL}/users/delete/${userId}`)
+  }
 }

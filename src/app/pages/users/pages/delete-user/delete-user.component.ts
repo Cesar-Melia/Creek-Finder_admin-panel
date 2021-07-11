@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, Validators, FormGroup } from '@angular/forms';
+import { UsersService } from '../../services/users.service';
 
 @Component({
   selector: 'app-delete-user',
@@ -7,9 +9,30 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DeleteUserComponent implements OnInit {
 
-  constructor() { }
+  deleteUserForm: FormGroup;
+
+  constructor(
+    private formBuilder: FormBuilder,
+    private deletUserService: UsersService
+  ) {
+    this.deleteUserForm = this.formBuilder.group({
+      id: ['', [Validators.required]],
+      userName: ['', [Validators.required]],
+
+
+    });
+  }
 
   ngOnInit(): void {
+
+  }
+
+  submitDeleteUserForm(event: any): void {
+    console.log(event.target.id.value)
+    this.deletUserService.deleteUser(event.target.id.value)
+      .subscribe((deleteUserData: any) => {
+        console.log(deleteUserData)
+      })
   }
 
 }
