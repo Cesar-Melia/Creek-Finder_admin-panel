@@ -17,4 +17,8 @@ export class CreeksService {
   getCreeks(): Observable<Creek[]> {
     return this.http.get<Creek[]>(`${this.API_URL}/creeks`);
   }
+
+  postCreek(newCreek: Creek): any {
+    return this.http.post(`${this.API_URL}/creeks/create`, newCreek);
+  }
 }

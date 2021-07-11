@@ -1,1 +1,31 @@
-<p>creeks works!</p>
+<form class="b-filter-form">
+  <div class="b-filter-form__inputs">
+
+    <input [(ngModel)]="filter.name" (input)="filterName()" type="text" id="name" name="name"
+      class="b-filter-form__input" placeholder="Nombre">
+
+    <!-- <input [(ngModel)]="inputProvince" type="text" id="province" class="b-filter-form__input"
+      placeholder="Provincia">
+
+    <select [(ngModel)]="inputType" name="province" class="b-filter-form__input">
+      <option [value]="type" *ngFor="let type of types">{{type}}</option> 
+    </select>-->
+
+  </div>
+</form>
+
+<section class="c-creeks__results">
+  <div *ngFor="let creek of filteredCreeks" class="c-creeks__item">
+    <div>
+      <span class="c-creeks__name">{{creek.name}} </span>
+      <span class="c-creeks__province"> {{creek.province}} </span>
+      <span class="c-creeks__type"> {{creek.type}} </span>
+
+    </div>
+    <div class="c-creeks__actions">
+      <a routerLink="/creeks/update-creek" class="c-creeks__link">Update</a>
+      <a routerLink="/creeks/update-creek" class="c-creeks__link">Delete</a>
+    </div>
+  </div>
+
+</section>

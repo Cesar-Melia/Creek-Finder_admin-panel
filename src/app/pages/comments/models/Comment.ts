@@ -6,4 +6,5 @@ export interface Comment {
   user: User;
   text: string;
   date: number;
+  _id?: number;
 }

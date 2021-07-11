@@ -6,8 +6,9 @@ export interface Creek {
   province: string;
   type: string;
   description: string;
-  comments: [Comment];
+  comments?: [Comment];
   lat: number;
   lng: number;
-  timesFav: number;
+  timesFav?: number;
+  _id?: number;
 }

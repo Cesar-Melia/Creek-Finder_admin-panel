@@ -1,1 +1,41 @@
-<p>create-creek works!</p>
+<form [formGroup]="createCreekForm" (submit)="submitForm()" class="b-form">
+
+    <label for="name" class="b-form__block">
+        <p>Nombre</p>
+        <input formControlName="name" type="text" id="name" class="" placeholder="creek name">
+    </label>
+
+
+    <label for="type" class="b-form__block">
+        <p>tipo</p>
+        <input formControlName="type" type="text" id="type" class="" placeholder="tipo">
+    </label>
+
+
+    <label for="description" class="b-form__block">
+        <p>descripción</p>
+        <input formControlName="description" type="text" id="description" class="" placeholder="descripcion">
+    </label>
+
+
+    <label for="lat" class="b-form__block">
+        <p>latitud</p>
+        <input formControlName="lat" type="text" id="lat" class="" placeholder="latitud">
+    </label>
+
+
+    <label for="lng" class="b-form__block">
+        <p>longitus</p>
+        <input formControlName="lng" type="text" id="lng" class="" placeholder="longitud">
+    </label>
+
+    <label for="img" class="b-form__block">
+        <p>imagen</p>
+        <input formControlName="img" type="file" id="img" class="" placeholder="imagen">
+    </label>
+
+
+    <input class="" type="submit" value="create creek">
+</form>
+
+<!-- [formGroup]="create-creek-Form" (submit)="submitForm()" -->
