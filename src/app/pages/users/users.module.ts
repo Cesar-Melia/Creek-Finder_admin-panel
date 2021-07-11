@@ -7,7 +7,8 @@ import { CreateUserComponent } from './pages/create-user/create-user.component';
 import { DeleteUserComponent } from './pages/delete-user/delete-user.component';
 import { UpdateUserComponent } from './pages/update-user/update-user.component';
 import { UsersComponent } from './users.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+
 
 
 @NgModule({
@@ -17,6 +18,6 @@ import { ReactiveFormsModule } from '@angular/forms';
     UpdateUserComponent,
     UsersComponent,
   ],
-  imports: [CommonModule, UsersRoutingModule, HttpClientModule, ReactiveFormsModule],
+  imports: [CommonModule, UsersRoutingModule, HttpClientModule, ReactiveFormsModule, FormsModule],
 })
 export class UsersModule { }

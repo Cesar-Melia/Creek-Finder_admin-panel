@@ -39,6 +39,6 @@ export class CreeksComponent implements OnInit {
     });
   }
 
-  filterProvince(): void {}
-  filterType(): void {}
+  filterProvince(): void { }
+  filterType(): void { }
 }
