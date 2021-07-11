@@ -13,11 +13,15 @@
   }
 
   &__province {
-    color: var(--color-orange-dark);
+    color: var(--color-orange-dark2);
   }
 
   &__type {
     color: var(--color-blue-dark);
+  }
+
+  &__id {
+    color: var(--color-light-gray);
   }
 
   &__actions {
@@ -26,5 +30,11 @@
 
   &__link {
     margin-left: 15px;
+
+    &--delete {
+      color: var(--color-red);
+      background-color: transparent;
+      border: none;
+    }
   }
 }

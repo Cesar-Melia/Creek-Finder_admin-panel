@@ -11,12 +11,17 @@ import { Comment } from './models/Comment';
 export class CommentsComponent implements OnInit {
   comments: Comment[];
   filteredComments: Comment[];
-  filter: { creekName: string };
+  filter: {
+    creekName: string;
+    userName: string;
+    userEmail: string;
+    commentId: string;
+  };
 
   constructor(private commentsService: CommentsService) {
     this.comments = [];
     this.filteredComments = [];
-    this.filter = { creekName: '' };
+    this.filter = { creekName: '', userName: '', userEmail: '', commentId: '' };
   }
 
   ngOnInit(): void {
@@ -32,16 +37,36 @@ export class CommentsComponent implements OnInit {
     this.filteredComments = this.comments;
 
     this.filteredComments = this.filteredComments.filter((comment) => {
-      console.log('commentarrio', comment.creek.name);
-      console.log('filter comment', this.filter.creekName);
-
-      return comment.creek.name
-        .toLowerCase()
-        .includes(this.filter.creekName.toLowerCase());
+      console.log('Comment Id', comment._id);
+      return (
+        comment.creek.name
+          .toLowerCase()
+          .includes(this.filter.creekName.toLowerCase()) &&
+        comment.user.userName
+          .toLowerCase()
+          .includes(this.filter.userName.toLowerCase()) &&
+        comment.user.email
+          .toLowerCase()
+          .includes(this.filter.userEmail.toLowerCase()) &&
+        comment._id?.toLowerCase().includes(this.filter.commentId)
+      );
     });
   }
 
-  ngOnDestroy(): void {
-    // this.commentsService.getComments().unSubscribe();
+  delete(event: any): void {
+    if (confirm('Estas seguro de querer borrar esta Cala:')) {
+      console.log('Implement delete functionality here');
+    }
+  }
+
+  reset(event: any): void {
+    event.preventDefault();
+
+    event.target.form.creekName.value = '';
+    event.target.form.userName.value = '';
+    event.target.form.userEmail.value = '';
+    event.target.form.commentId.value = '';
+
+    this.filteredComments = this.comments;
   }
 }

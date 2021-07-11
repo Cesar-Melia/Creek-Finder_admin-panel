@@ -9,5 +9,5 @@ export interface User {
   comments?: [Comment];
   favorites?: [Creek];
   img?: string;
-  _id?: number;
+  _id?: string;
 }

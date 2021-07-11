@@ -10,5 +10,5 @@ export interface Creek {
   lat: number;
   lng: number;
   timesFav?: number;
-  _id?: number;
+  _id?: string;
 }

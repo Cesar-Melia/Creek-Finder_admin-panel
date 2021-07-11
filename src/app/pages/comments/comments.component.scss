@@ -8,23 +8,31 @@
     justify-content: space-between;
   }
 
-  &__name {
+  &__user-name {
     color: var(--color-blue-logo);
   }
 
-  &__province {
-    color: var(--color-orange-dark);
+  &__user-email {
+    color: var(--color-orange-dark2);
   }
 
-  &__type {
+  &__creek {
     color: var(--color-blue-dark);
   }
 
+  &__id {
+    color: var(--color-light-gray);
+  }
+
+  &__comment {
+    color: var(--color-gray);
+  }
+
   &__actions {
-    // margin-left: 20px;
   }
 
   &__link {
     margin-left: 15px;
+    color: var(--color-red);
   }
 }

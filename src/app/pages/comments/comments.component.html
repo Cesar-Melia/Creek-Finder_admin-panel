@@ -1,24 +1,32 @@
 <form class="b-filter-form">
     <div class="b-filter-form__inputs">
+        <input [(ngModel)]="filter.creekName" (input)="filterComment()" type="text" id="creekName"
+            name="creekName" class="b-filter-form__input" placeholder="Nombre Cala">
 
-        <input [(ngModel)]="filter.creekName" (input)="filterComment()" type="text" id="creekName" name="creekName"
-            class="b-filter-form__input" placeholder="creek">
+        <input [(ngModel)]="filter.userName" (input)="filterComment()" type="text" id="userName"
+            name="userName" class="b-filter-form__input" placeholder="Nombre Usuario">
 
+        <input [(ngModel)]="filter.userEmail" (input)="filterComment()" type="text" id="userEmail"
+            name="userEmail" class="b-filter-form__input" placeholder="Email Usuario">
 
+        <input [(ngModel)]="filter.commentId" (input)="filterComment()" type="text" id="commentId"
+            name="commentId" class="b-filter-form__input" placeholder="Id Comentario">
     </div>
+    <button (click)="reset($event)">Reset</button>
 </form>
 
 <section class="c-comments__results">
     <div *ngFor="let comment of filteredComments " class="c-comments__item">
         <div>
-            <span class="c-comments__name">{{comment.creek.name}} </span>
-            <span class="c-comments__province"> {{comment.user.email}} </span>
-            <span class="c-comments__type"> {{comment.text}} </span>
-
+            <span class="c-comments__user-name"> {{comment.user.userName}} </span>
+            <span class="c-comments__user-email"> {{comment.user.email}} </span>
+            <span class="c-comments__creek">{{comment.creek.name}} </span>
+            <span class="c-comments__id">{{comment._id}} </span>
+            <p class="c-comments__comment"> {{comment.text}} </p>
         </div>
         <div class="c-comments__actions">
+            <button (click)="delete($event)" class="c-comments__link">Delete</button>
 
-            <a routerLink="/comments/update-creek" class="c-comments__link">Delete</a>
         </div>
     </div>
 

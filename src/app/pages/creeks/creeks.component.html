@@ -1,18 +1,32 @@
 <form class="b-filter-form">
   <div class="b-filter-form__inputs">
+    <label for="name" class="b-filter-form__label">
+      <span>Nombre</span>
+      <input [(ngModel)]="filter.name" (input)="findCreeks()" type="text" id="name" name="name"
+        class="b-filter-form__input" placeholder="Nombre">
+    </label>
 
-    <input [(ngModel)]="filter.name" (input)="findCreeks()" type="text" id="name" name="name"
-      class="b-filter-form__input" placeholder="Nombre">
+    <label for="name" class="b-filter-form__label">
+      <span>Provincia</span>
+      <select [(ngModel)]="filter.province" (change)="findCreeks()" id="province"
+        class="b-filter-form__input" data-function="province" name="province">
+        <option [value]="province" *ngFor="let province of provinces">{{province}}</option>
+      </select>
+    </label>
 
-    <select [(ngModel)]="filter.province" (change)="findCreeks()" id="province"
-      class="b-filter-form__input" data-function="province" name="province">
-      <option [value]="province" *ngFor="let province of provinces">{{province}}</option>
-    </select>
+    <label for="name" class="b-filter-form__label">
+      <span>Tipo</span>
+      <select [(ngModel)]="filter.type" (change)="findCreeks()" name="province"
+        class="b-filter-form__input" data-function="type" name="type">
+        <option [value]="type" *ngFor="let type of types">{{type}}</option>
+      </select>
+    </label>
 
-    <select [(ngModel)]="filter.type" (change)="findCreeks()" name="province"
-      class="b-filter-form__input" data-function="type" name="type">
-      <option [value]="type" *ngFor="let type of types">{{type}}</option>
-    </select>
+    <label for="id" class="b-filter-form__label">
+      <span>Id</span>
+      <input [(ngModel)]="filter.id" (input)="findCreeks()" type="text" id="id" name="id"
+        class="b-filter-form__input" placeholder="Id">
+    </label>
 
   </div>
   <button (click)="reset($event)">Reset</button>
@@ -24,11 +38,12 @@
       <span class="c-creeks__name">{{creek.name}} </span>
       <span class="c-creeks__province"> {{creek.province}} </span>
       <span class="c-creeks__type"> {{creek.type}} </span>
+      <span class="c-creeks__id"> {{creek._id}} </span>
 
     </div>
     <div class="c-creeks__actions">
       <a routerLink="/creeks/update-creek" class="c-creeks__link">Update</a>
-      <a routerLink="/creeks/update-creek" class="c-creeks__link">Delete</a>
+      <button (click)="delete($event)" class="c-creeks__link c-creeks__link--delete">Delete</button>
     </div>
   </div>
 

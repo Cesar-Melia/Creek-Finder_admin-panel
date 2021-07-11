@@ -13,7 +13,7 @@ export class CreeksComponent implements OnInit {
   filteredCreeks: Creek[];
   types: string[];
   provinces: string[];
-  filter: { name: string; province: string; type: string };
+  filter: { name: string; province: string; type: string; id: string };
 
   constructor(private creeksService: CreeksService) {
     this.creeks = [];
@@ -45,7 +45,7 @@ export class CreeksComponent implements OnInit {
       'Vizcaya',
     ];
 
-    this.filter = { name: '', province: '', type: '' };
+    this.filter = { name: '', province: '', type: '', id: '' };
   }
 
   ngOnInit(): void {
@@ -64,12 +64,17 @@ export class CreeksComponent implements OnInit {
         creek.province
           .toLowerCase()
           .includes(this.filter.province.toLowerCase()) &&
-        creek.type.toLowerCase().includes(this.filter.type.toLowerCase())
+        creek.type.toLowerCase().includes(this.filter.type.toLowerCase()) &&
+        creek._id?.toLowerCase().includes(this.filter.id.toLowerCase())
       );
     });
   }
 
-  filterType(): void {}
+  delete(event: any): void {
+    if (confirm('Estas seguro de querer borrar este Comentario:')) {
+      console.log('evento:', event.target.parentNode);
+    }
+  }
 
   reset(event: any): void {
     event.preventDefault();
@@ -78,6 +83,7 @@ export class CreeksComponent implements OnInit {
     event.target.form.name.value = '';
     event.target.form.province.value = '';
     event.target.form.type.value = '';
+    event.target.form.id.value = '';
 
     this.filteredCreeks = this.creeks;
   }
