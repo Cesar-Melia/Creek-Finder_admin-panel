@@ -2,9 +2,9 @@
   <div class="b-filter-form__inputs">
     <input [(ngModel)]="filter.userName" (input)="filterUser()" type="text" id="userName" name="userName"
       class="b-filter-form__input" placeholder="Nombre">
-    <input [(ngModel)]="filter.email" (input)="filterUserEmail()" type="text" id="email" name="email"
+    <input [(ngModel)]="filter.email" (input)="filterUser()" type="text" id="email" name="email"
       class="b-filter-form__input" placeholder="Email">
-    <select [(ngModel)]="filterRole" (change)="filterUserRole()" name="role">
+    <select [(ngModel)]="filter.role" (change)="filterUser()" name="role">
       <option value=""></option>
       <option value="user">Usuario</option>
       <option value="admin">Admin</option>

@@ -12,7 +12,7 @@ export class UsersComponent implements OnInit {
   users: User[];
   filteredUsers: User[];
   filter: { userName: string, email: string, role: string };
-  filterRole: string;
+
 
   constructor(
     private usersService: UsersService,
@@ -20,7 +20,7 @@ export class UsersComponent implements OnInit {
     this.users = [];
     this.filteredUsers = [];
     this.filter = { userName: '', email: '', role: '' };
-    this.filterRole = '';
+
   }
 
   ngOnInit(): void {
@@ -36,7 +36,9 @@ export class UsersComponent implements OnInit {
     this.filteredUsers = this.users
 
     this.filteredUsers = this.filteredUsers.filter((user) => {
-      return user.userName.toLowerCase().includes(this.filter.userName.toLowerCase())
+      return user.userName.toLowerCase().includes(this.filter.userName.toLowerCase()) &&
+        user.email.toLowerCase().includes(this.filter.email.toLowerCase()) &&
+        user.role?.toLowerCase().includes(this.filter.role.toLowerCase())
     })
   }
   filterUserEmail(): void {
@@ -51,7 +53,7 @@ export class UsersComponent implements OnInit {
     this.filteredUsers = this.users
 
     this.filteredUsers = this.filteredUsers.filter((user) => {
-      return user.role?.toLowerCase().includes(this.filterRole.toLowerCase())
+      return user.role?.toLowerCase().includes(this.filter.role.toLowerCase())
     })
   }
 }
