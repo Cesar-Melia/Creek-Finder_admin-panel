@@ -71,8 +71,14 @@ export class CreeksComponent implements OnInit {
 
   filterType(): void {}
 
-  reset(): void {
-    console.log('Reset');
+  reset(event: any): void {
+    event.preventDefault();
+    console.log('Reset', event);
+
+    event.target.form.name.value = '';
+    event.target.form.province.value = '';
+    event.target.form.type.value = '';
+
     this.filteredCreeks = this.creeks;
   }
 }
