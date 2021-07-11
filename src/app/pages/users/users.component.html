@@ -12,13 +12,18 @@
     </select>
   </div>
 </form>
-<section class="c-creeks__results">
-  <div *ngFor="let user of filteredUsers" class="c-creeks__item">
-    <div>
-      <span class="c-creeks__name">{{user.userName}} </span>
-      <span class="c-creeks__email"> {{user.email}} </span>
-      <span class="c-role"> {{user.role}} </span>
+<section class="c-users__results">
+  <div *ngFor="let user of filteredUsers" class="c-users__item">
 
+    <div>
+      <span class="c-users__name">{{user.userName}} </span>
     </div>
+    <div>
+      <span class="c-users__email"> {{user.email}} </span>
+    </div>
+    <div>
+      <span class="c-role"> {{user.role}} </span>
+    </div>
+
   </div>
 </section>
