@@ -43,7 +43,8 @@
     </div>
     <div class="c-creeks__actions">
       <a routerLink="/creeks/update-creek" class="c-creeks__link">Update</a>
-      <button (click)="delete($event)" class="c-creeks__link c-creeks__link--delete">Delete</button>
+      <button (click)="delete(creek._id)"
+        class="c-creeks__link c-creeks__link--delete">Delete</button>
     </div>
   </div>
 

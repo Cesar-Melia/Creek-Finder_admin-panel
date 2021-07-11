@@ -24,17 +24,18 @@
     color: var(--color-light-gray);
   }
 
-  &__actions {
-    // margin-left: 20px;
-  }
-
   &__link {
     margin-left: 15px;
 
     &--delete {
-      color: var(--color-red);
       background-color: transparent;
       border: none;
+      color: var(--color-red);
+      cursor: pointer;
+
+      &:hover {
+        color: var(--color-red-dark);
+      }
     }
   }
 }
