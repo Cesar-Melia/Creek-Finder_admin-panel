@@ -8,32 +8,36 @@ import { UsersService } from 'src/app/pages/users/services/users.service'
 })
 export class CreateUserComponent implements OnInit {
 
-  CreateUserForm: FormGroup;
+  createUserForm: FormGroup;
 
   constructor(
     private createUser: UsersService,
     private formBuilder: FormBuilder
   ) {
-    this.CreateUserForm = this.formBuilder.group({
+    this.createUserForm = this.formBuilder.group({
       userName: ['', [Validators.required]],
       password: ['', [Validators.required, Validators.minLength(8)]],
       email: ['', [Validators.required, Validators.email]],
-      role: ['', [Validators.required]],
     });
   }
 
   ngOnInit(): void {
   }
 
+
+
+
   submitCreateUserForm(): void {
-    console.log(this.CreateUserForm.value.email)
+    console.log(this.createUserForm.value.userName)
+
+    let newUser = {
+      userName: this.createUserForm.value.userName,
+      password: this.createUserForm.value.password,
+      email: this.createUserForm.value.email,
+    }
 
     this.createUser
-      .createUser(
-        this.CreateUserForm.value.userName,
-        this.CreateUserForm.value.password,
-        this.CreateUserForm.value.email,
-        this.CreateUserForm.value.role)
+      .createUser(newUser)
       .subscribe((newUserData: any) => {
         console.log('Nuevo usuario creado', newUserData)
       })

@@ -17,7 +17,7 @@ export class AuthService {
   login(email: string, password: string) {
     let body: Object = { email, password };
 
-    return this.http.post(`${this.API_URL}/register`, body);
+    return this.http.post(`${this.API_URL}/auth/login`, body);
   }
 
   ///logout

@@ -5,9 +5,9 @@ export interface User {
   userName: string;
   password: string;
   email: string;
-  role: string;
-  comments: [Comment];
-  favorites: [Creek];
-  img: string;
+  role?: string;
+  comments?: [Comment];
+  favorites?: [Creek];
+  img?: string;
   _id?: number;
 }

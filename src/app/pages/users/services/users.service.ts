@@ -18,9 +18,8 @@ export class UsersService {
     return this.http.get<User[]>(`${this.API_URL}/users`);
   }
 
-  createUser(userName: string, email: string, password: string, role: string,) {
-    let body: Object = { userName, email, password, role }
+  createUser(newUser: User) {
 
-    return this.http.post(`${this.API_URL}/auth/register`, body)
+    return this.http.post(`${this.API_URL}/auth/register`, newUser)
   }
 }

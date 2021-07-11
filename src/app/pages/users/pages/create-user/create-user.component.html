@@ -1,5 +1,5 @@
-<form [formGroup]="CreateUserForm" (submit)="submitCreateUserForm()" class="b-form">
-  <label for="email" class="b-form__block">
+<form [formGroup]="createUserForm" (submit)="submitCreateUserForm()" class="b-form">
+  <label for="userName" class="b-form__block">
     <p>Nombre de Usuario</p>
     <input formControlName="userName" type="text" id="userName" class="" placeholder="Nombre de usuario">
   </label>
@@ -10,14 +10,6 @@
   <label for="password" class="b-form__block">
     <p>Contraseña</p>
     <input formControlName="password" type="password" id="password" class="" placeholder="Password">
-  </label>
-  <label for="role" class="b-form__block">
-    <p>Role</p>
-    <select formControlName="role" type="text" id="role" class="" placeholder="role">
-      <option value="user">User</option>
-      <option value="admin">Admin</option>
-      <option value="creator">Creator</option>
-    </select>
   </label>
   <input class="" type="submit" value="Crear Usuario">
 </form>
