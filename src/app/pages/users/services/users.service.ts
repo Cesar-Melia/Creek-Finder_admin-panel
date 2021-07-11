@@ -19,7 +19,6 @@ export class UsersService {
   }
 
   createUser(newUser: User) {
-
     return this.http.post(`${this.API_URL}/auth/register`, newUser)
   }
 }

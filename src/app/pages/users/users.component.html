@@ -1,1 +1,24 @@
-<p>users works!</p>
+<form class="b-filter-form">
+  <div class="b-filter-form__inputs">
+    <input [(ngModel)]="filter.userName" (input)="filterUser()" type="text" id="userName" name="userName"
+      class="b-filter-form__input" placeholder="Nombre">
+    <input [(ngModel)]="filter.email" (input)="filterUserEmail()" type="text" id="email" name="email"
+      class="b-filter-form__input" placeholder="Email">
+    <select [(ngModel)]="filterRole" (change)="filterUserRole()" name="role">
+      <option value=""></option>
+      <option value="user">Usuario</option>
+      <option value="admin">Admin</option>
+      <option value="creator">Creator</option>
+    </select>
+  </div>
+</form>
+<section class="c-creeks__results">
+  <div *ngFor="let user of filteredUsers" class="c-creeks__item">
+    <div>
+      <span class="c-creeks__name">{{user.userName}} </span>
+      <span class="c-creeks__province"> {{user.email}} </span>
+      <span class="c-creeks__type"> {{user.role}} </span>
+
+    </div>
+  </div>
+</section>

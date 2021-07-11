@@ -69,6 +69,7 @@ export class CreeksComponent implements OnInit {
     });
   }
 
+<<<<<<< HEAD
   filterProvince(): void {}
 
   filterType(): void {}
@@ -77,4 +78,8 @@ export class CreeksComponent implements OnInit {
     console.log('Reset');
     this.filteredCreeks = this.creeks;
   }
+=======
+  filterProvince(): void { }
+  filterType(): void { }
+>>>>>>> cbe24852f80ef9d2ea92176ddd3ba845c8a2dcfc
 }
