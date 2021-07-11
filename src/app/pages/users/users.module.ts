@@ -7,6 +7,8 @@ import { CreateUserComponent } from './pages/create-user/create-user.component';
 import { DeleteUserComponent } from './pages/delete-user/delete-user.component';
 import { UpdateUserComponent } from './pages/update-user/update-user.component';
 import { UsersComponent } from './users.component';
+import { ReactiveFormsModule } from '@angular/forms';
+
 
 @NgModule({
   declarations: [
@@ -15,6 +17,6 @@ import { UsersComponent } from './users.component';
     UpdateUserComponent,
     UsersComponent,
   ],
-  imports: [CommonModule, UsersRoutingModule, HttpClientModule],
+  imports: [CommonModule, UsersRoutingModule, HttpClientModule, ReactiveFormsModule],
 })
-export class UsersModule {}
+export class UsersModule { }

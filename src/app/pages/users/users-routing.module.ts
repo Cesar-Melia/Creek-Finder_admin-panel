@@ -4,6 +4,7 @@ import { CreateUserComponent } from './pages/create-user/create-user.component';
 import { UpdateUserComponent } from './pages/update-user/update-user.component';
 import { DeleteUserComponent } from './pages/delete-user/delete-user.component';
 import { UsersComponent } from './users.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 const routes: Routes = [
   { path: '', component: UsersComponent },
@@ -13,7 +14,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forChild(routes)],
+  imports: [RouterModule.forChild(routes), ReactiveFormsModule],
   exports: [RouterModule],
 })
-export class UsersRoutingModule {}
+export class UsersRoutingModule { }

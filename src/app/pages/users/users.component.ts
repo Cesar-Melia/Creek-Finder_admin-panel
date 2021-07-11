@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UsersService } from './services/users.service';
 import { User } from './models/User';
-
+import { FormBuilder } from '@angular/forms';
 @Component({
   selector: 'app-users',
   templateUrl: './users.component.html',
@@ -11,7 +11,9 @@ import { User } from './models/User';
 export class UsersComponent implements OnInit {
   users: User[];
 
-  constructor(private usersService: UsersService) {
+  constructor(
+    private usersService: UsersService,
+  ) {
     this.users = [];
   }
 

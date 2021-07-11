@@ -1,1 +1,13 @@
-<p>delete-user works!</p>
+<form class="b-form">
+  <label for="email" class="b-form__block">
+    <p>Buscar usuario por id</p>
+    <input formControlName="id" type="text" id="id" class="" placeholder="Id de usuario">
+  </label>
+  <label for="email" class="b-form__block">
+    <p>Buscar usuario por nombre</p>
+    <input formControlName="userName" type="text" id="userName" class="" placeholder="Nombre de usuario">
+  </label>
+  <input class="" type="submit" value="Borrar usuario">
+</form>
+
+<!-- [formGroup]="CreateUserForm" (submit)="submitCreateUserForm()" -->
