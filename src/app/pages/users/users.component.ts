@@ -41,19 +41,4 @@ export class UsersComponent implements OnInit {
         user.role?.toLowerCase().includes(this.filter.role.toLowerCase())
     })
   }
-  filterUserEmail(): void {
-    this.filteredUsers = this.users
-
-    this.filteredUsers = this.filteredUsers.filter((user) => {
-      return user.email.toLowerCase().includes(this.filter.email.toLowerCase())
-    })
-  }
-
-  filterUserRole(): void {
-    this.filteredUsers = this.users
-
-    this.filteredUsers = this.filteredUsers.filter((user) => {
-      return user.role?.toLowerCase().includes(this.filter.role.toLowerCase())
-    })
-  }
 }
