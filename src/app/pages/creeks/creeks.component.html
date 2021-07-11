@@ -1,17 +1,21 @@
 <form class="b-filter-form">
   <div class="b-filter-form__inputs">
 
-    <input [(ngModel)]="filter.name" (input)="filterName()" type="text" id="name" name="name"
+    <input [(ngModel)]="filter.name" (input)="findCreeks()" type="text" id="name" name="name"
       class="b-filter-form__input" placeholder="Nombre">
 
-    <!-- <input [(ngModel)]="inputProvince" type="text" id="province" class="b-filter-form__input"
-      placeholder="Provincia">
+    <select [(ngModel)]="filter.province" (change)="findCreeks()" id="province"
+      class="b-filter-form__input" data-function="province" name="province">
+      <option [value]="province" *ngFor="let province of provinces">{{province}}</option>
+    </select>
 
-    <select [(ngModel)]="inputType" name="province" class="b-filter-form__input">
-      <option [value]="type" *ngFor="let type of types">{{type}}</option> 
-    </select>-->
+    <select [(ngModel)]="filter.type" (change)="findCreeks()" name="province"
+      class="b-filter-form__input" data-function="type" name="type">
+      <option [value]="type" *ngFor="let type of types">{{type}}</option>
+    </select>
 
   </div>
+  <input type="reset" (click)="reset()">
 </form>
 
 <section class="c-creeks__results">
@@ -27,5 +31,7 @@
       <a routerLink="/creeks/update-creek" class="c-creeks__link">Delete</a>
     </div>
   </div>
+
+  <p>{{filter.province}}</p>
 
 </section>

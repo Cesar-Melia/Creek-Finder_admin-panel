@@ -11,34 +11,68 @@ import { Creek } from './models/Creek';
 export class CreeksComponent implements OnInit {
   creeks: Creek[];
   filteredCreeks: Creek[];
-
   types: string[];
+  provinces: string[];
   filter: { name: string; province: string; type: string };
 
   constructor(private creeksService: CreeksService) {
     this.creeks = [];
     this.filteredCreeks = [];
-    this.types = ['arena', 'rocas', 'cantos rodados'];
+    this.types = ['', 'arena', 'rocas', 'cantos rodados'];
+    this.provinces = [
+      '',
+      'Alicante',
+      'Almería',
+      'Asturias',
+      'Barcelona',
+      'Cádiz',
+      'Cantabria',
+      'Castellón',
+      'La Coruña',
+      'Gerona',
+      'Granada',
+      'Guipúzcoa',
+      'Huelva',
+      'Islas Baleares',
+      'Lugo',
+      'Málaga',
+      'Murcia',
+      'Las Palmas',
+      'Pontevedra',
+      'Tarragona',
+      'Santa Cruz de Tenerife',
+      'Valencia',
+      'Vizcaya',
+    ];
+
     this.filter = { name: '', province: '', type: '' };
   }
 
   ngOnInit(): void {
     this.creeksService.getCreeks().subscribe((creeksData: Creek[]) => {
-      console.log('Resultado petición API: ', creeksData);
-
       this.creeks = creeksData;
       this.filteredCreeks = creeksData;
     });
   }
 
-  filterName(): void {
+  findCreeks(): void {
     this.filteredCreeks = this.creeks;
 
     this.filteredCreeks = this.filteredCreeks.filter((creek) => {
-      return creek.name.toLowerCase().includes(this.filter.name.toLowerCase());
+      return (
+        creek.name.toLowerCase().includes(this.filter.name.toLowerCase()) &&
+        creek.province
+          .toLowerCase()
+          .includes(this.filter.province.toLowerCase()) &&
+        creek.type.toLowerCase().includes(this.filter.type.toLowerCase())
+      );
     });
   }
 
-  filterProvince(): void { }
-  filterType(): void { }
+  filterType(): void {}
+
+  reset(): void {
+    console.log('Reset');
+    this.filteredCreeks = this.creeks;
+  }
 }
