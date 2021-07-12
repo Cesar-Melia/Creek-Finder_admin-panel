@@ -1,7 +1,7 @@
 .c-menu {
   height: calc(100vh - 90px);
-  width: 165px;
-  padding: 90px 20px 0 20px;
+  width: 185px;
+  padding-top: 90px;
   background-color: var(--color-blue-logo);
   color: var(--color-warm-white);
 
@@ -26,6 +26,16 @@
   }
 
   &__block {
-    margin-bottom: 30px;
+    margin-bottom: 40px;
+    padding: 0 20px;
+  }
+
+  &__title {
+    display: flex;
+    align-items: center;
+    background-color: var(--color-blue-logo-light);
+    width: calc(100% - 40px);
+    height: 40px;
+    padding: 0 20px;
   }
 }

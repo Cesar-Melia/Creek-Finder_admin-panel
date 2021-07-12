@@ -1,10 +1,14 @@
 <header class="c-header">
-  <div class="c-header__block">
-    <span class="c-header__menu-icon" (click)="activateMenu()">ICONO</span>
+  <div class="c-header__content">
+    <span class="icon-menu c-header__menu-icon" (click)="activateMenu()"></span>
     <img class="c-header__menu-logo" routerLink="/" routerLinkActiveOptions="{exact:true}"
       src="../../../../assets/images/logo/logo_beach_300.png">
 
     <nav class="c-header__mobile-menu" [ngClass]="{ 'd-none': menuActive === false }">
+      <div class="c-header__title">
+        <a routerLink="/users">Usuarios</a>
+
+      </div>
       <ul class="c-header__users-list">
         <li>
           <a routerLink="/users/create-user" routerLinkActive="c-header__active"
@@ -19,6 +23,10 @@
             (click)="activateMenu()">Borrar Usuario</a>
         </li>
       </ul>
+
+      <div class="c-header__title">
+        <a routerLink="/creeks">Calas</a>
+      </div>
       <ul class="c-header__creeks-list">
         <li>
           <a routerLink="/creeks/create-creek" routerLinkActive="c-header__active"
@@ -36,17 +44,11 @@
             Cala</a>
         </li>
       </ul>
+
+      <div class="c-header__title">
+        <a routerLink="/comments">Comentarios</a>
+      </div>
       <ul class="c-header__comments-list">
-        <li>
-          <a routerLink="/comments/create-comment" routerLinkActive="c-header__active"
-            (click)="activateMenu()">Crear
-            Comentario</a>
-        </li>
-        <li>
-          <a routerLink="/comments/update-comment" routerLinkActive="c-header__active"
-            (click)="activateMenu()">Editar
-            Comentario</a>
-        </li>
         <li>
           <a routerLink="/comments/delete-comment" routerLinkActive="c-header__active"
             (click)="activateMenu()">Borrar
@@ -56,9 +58,8 @@
     </nav>
 
     <nav class="c-header__auth">
-      <a routerLink="/login" class="c-header__auth-link"
-        [ngClass]="{ 'd-none': isAuth === true }">Iniciar Sesión</a>
-      <a class="c-header__auth-link" [ngClass]="{ 'd-none': isAuth === false }">Salir de Sesión</a>
+      <a routerLink="/login" [ngClass]="{ 'd-none': isAuth === true }">Iniciar Sesión</a>
+      <a [ngClass]="{ 'd-none': isAuth === false }">Salir de Sesión</a>
     </nav>
   </div>
 </header>
