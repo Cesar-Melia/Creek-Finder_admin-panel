@@ -44,18 +44,19 @@
     background-color: var(--color-blue-logo);
     padding: 50px 0 30px 0;
     font-size: 20px;
+
+    a {
+      color: var(--color-warm-white);
+      width: 100%;
+
+      &:hover {
+        color: var(--color-blue);
+      }
+    }
   }
 
   &__active {
     color: var(--color-blue);
-  }
-
-  &__auth {
-    margin-right: 30px;
-
-    @media (min-width: 992px) {
-      margin-right: 50px;
-    }
   }
 
   &__title {
@@ -70,12 +71,15 @@
     margin-bottom: 30px;
   }
 
-  a {
-    color: var(--color-warm-white);
-    width: 100%;
+  &__auth {
+    margin-right: 30px;
 
-    &:hover {
-      color: var(--color-blue);
+    a {
+      color: var(--color-blue-logo);
+    }
+
+    @media (min-width: 992px) {
+      margin-right: 50px;
     }
   }
 }
