@@ -8,9 +8,11 @@
 
 <section class="c-users__results">
   <div *ngIf="isThereUser" class="c-users__item">
-
-    <form class="b-form">
-
+    <form class="b-form" (submit)="submitEditUser($event)">
+      <label for="id" class="b-form__block">
+        <p>Id de Usuario</p>
+        <input value="{{userToUpdate._id}}" type="text" id="id" class="" placeholder="{{userToUpdate._id}}">
+      </label>
       <label for="userName" class="b-form__block">
         <p>Nombre de Usuario</p>
         <input value="{{userToUpdate.userName}}" type="text" id="userName" class="" placeholder="Nombre de usuario">
@@ -23,10 +25,10 @@
         <p>Contraseña</p>
         <input value="{{userToUpdate.password}}" type="text" id="password" class="" placeholder="Password">
       </label>
-      <label for="role" class="b-form__block">
+      <!-- <label for="role" class="b-form__block">
         <p>Role</p>
         <input value="{{userToUpdate.role}}" type="text" id="role" class="" placeholder="Role">
-      </label>
+      </label> -->
       <input class="" type="submit" value="Editar Usuario">
     </form>
   </div>

@@ -30,4 +30,26 @@ export class UpdateUserComponent implements OnInit {
 
       })
   }
+
+  submitEditUser(event: any): void {
+
+    let userOgId = event.target.id.placeholder;
+
+
+    if (confirm('Estas seguro de actualizar a ' + event.target.userName.value)) {
+      let editedUser = {
+        userName: event.target.userName.value,
+        email: event.target.email.value,
+        password: event.target.password.value,
+        id: event.target.id.value,
+        // role: event.target.role.value
+      }
+      this.userService.editUser(userOgId, editedUser)
+        .subscribe((editedUserData: any) => {
+          console.log(editedUserData)
+        })
+    }
+  }
+
 }
+
