@@ -1,28 +1,50 @@
 <form class="b-filter-form">
   <div class="b-filter-form__inputs">
-    <input [(ngModel)]="filter.userName" (input)="filterUser()" type="text" id="userName" name="userName"
-      class="b-filter-form__input" placeholder="Nombre">
-    <input [(ngModel)]="filter.email" (input)="filterUser()" type="text" id="email" name="email"
-      class="b-filter-form__input" placeholder="Email">
-    <select [(ngModel)]="filter.role" (change)="filterUser()" name="role">
-      <option value=""></option>
-      <option value="user">Usuario</option>
-      <option value="admin">Admin</option>
-      <option value="creator">Creator</option>
-    </select>
+
+    <label for="userName" class="b-filter-form__label">
+      <span>N. Usuario</span>
+      <input [(ngModel)]="filter.userName" (input)="filterUser()" type="text" id="userName"
+        name="userName" class="b-filter-form__input" placeholder="Nombre">
+    </label>
+
+    <label for="email" class="b-filter-form__label">
+      <span>Email</span>
+      <input [(ngModel)]="filter.email" (input)="filterUser()" type="text" id="email" name="email"
+        class="b-filter-form__input" placeholder="Email">
+    </label>
+
+    <label for="role" class="b-filter-form__label">
+      <span>Rol</span>
+      <select [(ngModel)]="filter.role" (change)="filterUser()" name="role" id="role"
+        class="b-filter-form__input">
+        <option value=""></option>
+        <option value="user">Usuario</option>
+        <option value="admin">Admin</option>
+        <option value="creator">Creator</option>
+      </select>
+    </label>
+
+    <label for="id" class="b-filter-form__label">
+      <span>Id</span>
+      <input [(ngModel)]="filter.id" (input)="filterUser()" type="text" id="id" name="id"
+        class="b-filter-form__input" placeholder="Id">
+    </label>
+
   </div>
+  <button (click)="reset($event)">Reset</button>
+
 </form>
 <section class="c-users__results">
   <div *ngFor="let user of filteredUsers" class="c-users__item">
-
     <div>
       <span class="c-users__name">{{user.userName}} </span>
-    </div>
-    <div>
       <span class="c-users__email"> {{user.email}} </span>
+      <span class="c-users__role"> {{user.role}} </span>
+      <span class="c-users__id"> {{user._id}} </span>
     </div>
-    <div>
-      <span class="c-role"> {{user.role}} </span>
+    <div class="c-users__actions">
+      <a routerLink="/users/update-creek" class="c-users__link">Update</a>
+      <button (click)="delete(user._id)" class="c-users__link c-users__link--delete">Delete</button>
     </div>
 
   </div>

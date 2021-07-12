@@ -6,7 +6,7 @@
         class="b-filter-form__input" placeholder="Nombre">
     </label>
 
-    <label for="name" class="b-filter-form__label">
+    <label for="province" class="b-filter-form__label">
       <span>Provincia</span>
       <select [(ngModel)]="filter.province" (change)="findCreeks()" id="province"
         class="b-filter-form__input" data-function="province" name="province">
@@ -14,10 +14,10 @@
       </select>
     </label>
 
-    <label for="name" class="b-filter-form__label">
+    <label for="type" class="b-filter-form__label">
       <span>Tipo</span>
-      <select [(ngModel)]="filter.type" (change)="findCreeks()" name="province"
-        class="b-filter-form__input" data-function="type" name="type">
+      <select [(ngModel)]="filter.type" (change)="findCreeks()" class="b-filter-form__input"
+        data-function="type" name="type" id="type">
         <option [value]="type" *ngFor="let type of types">{{type}}</option>
       </select>
     </label>
@@ -27,6 +27,8 @@
       <input [(ngModel)]="filter.id" (input)="findCreeks()" type="text" id="id" name="id"
         class="b-filter-form__input" placeholder="Id">
     </label>
+
+
 
   </div>
   <button (click)="reset($event)">Reset</button>
@@ -47,7 +49,5 @@
         class="c-creeks__link c-creeks__link--delete">Delete</button>
     </div>
   </div>
-
-  <p>{{filter.province}}</p>
 
 </section>

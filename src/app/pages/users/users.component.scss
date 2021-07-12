@@ -10,20 +10,31 @@
 
   &__name {
     color: var(--color-blue-logo);
-    margin: 0 10px;
-   
   }
   &__email {
-    color: var(--color-orange-dark);
-    margin: 0 10px;
+    color: var(--color-orange-dark2);
   }
 
   &__role {
-    color: var(--color-gray);
-    margin: 0 10px;
+    color: var(--color-blue-dark);
+  }
+
+  &__id {
+    color: var(--color-light-gray);
   }
 
   &__link {
     margin-left: 15px;
+
+    &--delete {
+      background-color: transparent;
+      border: none;
+      color: var(--color-red);
+      cursor: pointer;
+
+      &:hover {
+        color: var(--color-red-dark);
+      }
+    }
   }
 }

@@ -85,7 +85,6 @@ export class CreeksComponent implements OnInit {
 
   reset(event: any): void {
     event.preventDefault();
-    console.log('Reset', event);
 
     event.target.form.name.value = '';
     event.target.form.province.value = '';
