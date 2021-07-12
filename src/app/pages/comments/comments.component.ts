@@ -25,12 +25,7 @@ export class CommentsComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.commentsService.getComments().subscribe((commentsData: any) => {
-      console.log('Resultado API: ', commentsData);
-
-      this.comments = commentsData;
-      this.filteredComments = commentsData;
-    });
+    this.getComments();
   }
 
   filterComment(): void {
@@ -53,9 +48,24 @@ export class CommentsComponent implements OnInit {
     });
   }
 
-  delete(event: any): void {
-    if (confirm('Estas seguro de querer borrar esta Cala:')) {
-      console.log('Implement delete functionality here');
+  getComments(): void {
+    this.commentsService.getComments().subscribe((commentsData: any) => {
+      console.log('Resultado API: ', commentsData);
+
+      this.comments = commentsData;
+      this.filteredComments = commentsData;
+    });
+  }
+
+  delete(commentId: any): void {
+    if (confirm('Estas seguro de querer borrar este Comentario:')) {
+      console.log('Id:', commentId);
+
+      this.commentsService
+        .deleteComment(commentId)
+        .subscribe((creekData: Comment) => {
+          this.getComments();
+        });
     }
   }
 
