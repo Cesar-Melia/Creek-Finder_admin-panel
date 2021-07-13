@@ -31,7 +31,7 @@ export class UsersService {
     return this.http.delete<User>(`${this.API_URL}/users/delete/${userId}`);
   }
 
-  editUser(userId: string, editUser: Object) {
+  editUser(userId: string, editUser: User) {
     return this.http.put(`${this.API_URL}/users/edit/${userId}`, editUser)
   }
 }
