@@ -1,55 +1,71 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
 import { UsersService } from '../../services/users.service';
 
 @Component({
   selector: 'app-update-user',
   templateUrl: './update-user.component.html',
-  styleUrls: ['./update-user.component.scss']
+  styleUrls: ['./update-user.component.scss'],
 })
 export class UpdateUserComponent implements OnInit {
-  userToUpdate: any
-  isThereUser: Boolean
-  constructor(
-    private userService: UsersService
-  ) {
+  userToUpdate: any;
+  isThereUser: Boolean;
+  userId: string;
+
+  constructor(private userService: UsersService) {
+    this.userId = '';
     this.userToUpdate = '';
     this.isThereUser = false;
   }
 
-  ngOnInit(): void {
-  }
-
+  ngOnInit(): void {}
 
   submitCreateUserForm(event: any): void {
-    console.log(event.target.id.value)
-    this.userService.getUsersId(event.target.id.value)
-      .subscribe((userIdData: any) => {
-        console.log(userIdData)
-        this.userToUpdate = userIdData
-        this.isThereUser = true
+    this.userId = event.target.id.value;
 
-      })
+    this.userService
+      .getUsersId(event.target.id.value)
+      .subscribe((userIdData: any) => {
+        console.log(userIdData);
+        this.userToUpdate = userIdData;
+        this.isThereUser = true;
+      });
   }
 
   submitEditUser(event: any): void {
+    if (
+      confirm(
+        'Estas seguro de actualizar el usuario: ' + event.target.userName.value
+      )
+    ) {
+      let password;
+      let role;
+      let img;
 
-    let userOgId = event.target.id.placeholder;
+      event.target.password.value
+        ? (password = event.target.password.value)
+        : (password = undefined);
 
+      event.target.role.value
+        ? (role = event.target.role.value)
+        : (role = undefined);
 
-    if (confirm('Estas seguro de actualizar a ' + event.target.userName.value)) {
+      // event.target.img.value
+      // ? (img = event.target.img.value)
+      // : (img = undefined);
+
       let editedUser = {
         userName: event.target.userName.value,
         email: event.target.email.value,
-        password: event.target.password.value,
-        id: event.target.id.value,
-        // role: event.target.role.value
-      }
-      this.userService.editUser(userOgId, editedUser)
+        password: password,
+        role: role,
+      };
+
+      this.userService
+        .editUser(this.userId, editedUser)
         .subscribe((editedUserData: any) => {
-          console.log(editedUserData)
-        })
+          console.log(editedUserData);
+        });
     }
   }
-
 }
-

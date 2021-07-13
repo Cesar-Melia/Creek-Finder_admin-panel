@@ -9,21 +9,32 @@
 <section class="c-users__results">
   <div *ngIf="isThereUser" class="c-users__item">
     <form class="b-form" (submit)="submitEditUser($event)">
-      <label for="id" class="b-form__block">
-        <p>Id de Usuario</p>
-        <input value="{{userToUpdate._id}}" type="text" id="id" class="" placeholder="{{userToUpdate._id}}">
+
+      <label for="role" class="b-form__block">
+        <p>Rol de Usuario</p>
+        <select id="role" name="role" class="b-form__select">
+          <option selected="selected" value=""></option>
+          <option value="user">User</option>
+          <option value="admin">Admin</option>
+          <option value="creator">Creator</option>
+        </select>
       </label>
+
       <label for="userName" class="b-form__block">
         <p>Nombre de Usuario</p>
-        <input value="{{userToUpdate.userName}}" type="text" id="userName" class="" placeholder="Nombre de usuario">
+        <input value="{{userToUpdate.userName}}" type="text" id="userName" name="userName"
+          placeholder="Nombre de usuario">
       </label>
+
       <label for="email" class="b-form__block">
         <p>Email</p>
-        <input value="{{userToUpdate.email}}" type="email" id="email" class="" placeholder="Email">
+        <input value="{{userToUpdate.email}}" type="email" id="email" placeholder="Email"
+          name="email">
       </label>
       <label for="password" class="b-form__block">
         <p>Contraseña</p>
-        <input value="{{userToUpdate.password}}" type="text" id="password" class="" placeholder="Password">
+        <input value="{{userToUpdate.password}}" type="text" id="password" placeholder="Password"
+          name="password">
       </label>
       <!-- <label for="role" class="b-form__block">
         <p>Role</p>
