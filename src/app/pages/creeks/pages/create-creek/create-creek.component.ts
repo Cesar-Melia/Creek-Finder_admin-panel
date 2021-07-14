@@ -15,10 +15,8 @@ export class CreateCreekComponent implements OnInit {
   constructor(
     private creeksService: CreeksService,
     private formBuilder: FormBuilder
-
   ) {
     this.imageURL = '';
-
 
     this.createCreekForm = this.formBuilder.group({
       name: ['', [Validators.required]],
@@ -29,11 +27,10 @@ export class CreateCreekComponent implements OnInit {
       lat: ['', [Validators.required]],
       lng: ['', [Validators.required]],
     });
-
   }
   ///////
 
-  ngOnInit(): void { }
+  ngOnInit(): void {}
 
   submitForm(): void {
     let newCreek = {
@@ -52,20 +49,20 @@ export class CreateCreekComponent implements OnInit {
       });
   }
 
-  // onFileSelected(event: { target: HTMLInputElement; }): void {
-  //   // console.log(event.target.files[0]);
-  //   const selectedFile = (event.target);
-  //   this.createCreekForm.patchValue({ img: selectedFile });
-  //   this.createCreekForm.get('img')?.updateValueAndValidity();
+  onFileSelected(event: Event): void {
+    console.log('imagen: ', (event.target as HTMLInputElement).files![0]);
 
-  //   const reader = new FileReader();
-  //   reader.onload = () => {
-  //     this.imageURL = reader.result as string;
-  //   }
-  //   reader.readAsDataURL(selectedFile)
+    const selectedFile: any = (event.target as HTMLInputElement).files![0];
 
+    this.createCreekForm.patchValue({ img: selectedFile });
+    this.createCreekForm.get('img')?.updateValueAndValidity();
 
-  // }
-
-
+    const reader = new FileReader();
+    reader.onload = () => {
+      this.imageURL = reader.result as string;
+    };
+    reader.readAsDataURL(selectedFile);
+  }
 }
+
+// https://stackoverflow.com/questions/43951090/typescript-object-is-possibly-null/43960039

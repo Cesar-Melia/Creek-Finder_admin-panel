@@ -31,8 +31,10 @@
 
     <label for="img" class="b-form__block">
         <p>imagen</p>
-        <input accept="image/*" type="file" id="img" placeholder="imagen" class="b-form__img-input">
+        <input accept="image/*" type="file" id="img" placeholder="imagen" class="b-form__img-input"
+            (change)="onFileSelected($event)">
     </label>
+
     <div *ngIf="imageURL && imageURL !== ''">
         <img src={imageUrl} alt="img">
     </div>
