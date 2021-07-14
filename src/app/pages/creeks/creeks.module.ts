@@ -15,6 +15,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     UpdateCreekComponent,
     DeleteCreekComponent,
     CreeksComponent,
+
   ],
   imports: [
     CommonModule,
@@ -22,6 +23,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     HttpClientModule,
     ReactiveFormsModule,
     FormsModule,
+
   ],
 })
-export class CreekModule {}
+export class CreekModule { }

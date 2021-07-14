@@ -31,9 +31,11 @@
 
     <label for="img" class="b-form__block">
         <p>imagen</p>
-        <input formControlName="img" type="file" id="img" placeholder="imagen"
-            class="b-form__img-input">
+        <input accept="image/*" type="file" id="img" placeholder="imagen" class="b-form__img-input">
     </label>
+    <div *ngIf="imageURL && imageURL !== ''">
+        <img src={imageUrl} alt="img">
+    </div>
 
 
     <input type="submit" value="create creek" class="b-form__img-input">

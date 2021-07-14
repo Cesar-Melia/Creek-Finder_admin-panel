@@ -10,24 +10,30 @@ import { Creek } from '../../models/Creek';
 })
 export class CreateCreekComponent implements OnInit {
   createCreekForm: FormGroup;
+  imageURL: string;
 
   constructor(
     private creeksService: CreeksService,
     private formBuilder: FormBuilder
+
   ) {
+    this.imageURL = '';
+
+
     this.createCreekForm = this.formBuilder.group({
       name: ['', [Validators.required]],
-      img: ['', [Validators.required]],
+      img: [null, [Validators.required]],
       province: ['', [Validators.required]],
       type: ['', [Validators.required]],
       description: ['', [Validators.required]],
       lat: ['', [Validators.required]],
       lng: ['', [Validators.required]],
     });
+
   }
   ///////
 
-  ngOnInit(): void {}
+  ngOnInit(): void { }
 
   submitForm(): void {
     let newCreek = {
@@ -45,4 +51,21 @@ export class CreateCreekComponent implements OnInit {
         console.log('Cala creada: ', createCreekData);
       });
   }
+
+  // onFileSelected(event: { target: HTMLInputElement; }): void {
+  //   // console.log(event.target.files[0]);
+  //   const selectedFile = (event.target);
+  //   this.createCreekForm.patchValue({ img: selectedFile });
+  //   this.createCreekForm.get('img')?.updateValueAndValidity();
+
+  //   const reader = new FileReader();
+  //   reader.onload = () => {
+  //     this.imageURL = reader.result as string;
+  //   }
+  //   reader.readAsDataURL(selectedFile)
+
+
+  // }
+
+
 }
