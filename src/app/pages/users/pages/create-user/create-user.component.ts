@@ -1,13 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators, FormGroup } from '@angular/forms';
-import { UsersService } from 'src/app/pages/users/services/users.service'
+import { UsersService } from 'src/app/pages/users/services/users.service';
+import { User } from '../../models/User';
+
 @Component({
   selector: 'app-create-user',
   templateUrl: './create-user.component.html',
-  styleUrls: ['./create-user.component.scss']
+  styleUrls: ['./create-user.component.scss'],
 })
 export class CreateUserComponent implements OnInit {
-
   createUserForm: FormGroup;
 
   constructor(
@@ -21,26 +22,19 @@ export class CreateUserComponent implements OnInit {
     });
   }
 
-  ngOnInit(): void {
-  }
-
-
-
+  ngOnInit(): void {}
 
   submitCreateUserForm(): void {
-    console.log(this.createUserForm.value.userName)
+    console.log(this.createUserForm.value.userName);
 
     let newUser = {
       userName: this.createUserForm.value.userName,
       password: this.createUserForm.value.password,
       email: this.createUserForm.value.email,
-    }
+    };
 
-    this.createUser
-      .createUser(newUser)
-      .subscribe((newUserData: any) => {
-        console.log('Nuevo usuario creado', newUserData)
-      })
+    this.createUser.createUser(newUser).subscribe((newUserData: User) => {
+      console.log('Nuevo usuario creado', newUserData);
+    });
   }
-
 }

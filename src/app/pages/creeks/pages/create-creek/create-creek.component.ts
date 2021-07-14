@@ -1,9 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthService } from 'src/app/shared/services/auth.service';
 import { CreeksService } from '../../services/creeks.service';
-import { FormBuilder, Validators } from '@angular/forms';
+import { FormBuilder, Validators, FormGroup } from '@angular/forms';
 import { Creek } from '../../models/Creek';
-import { FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-create-creek',
