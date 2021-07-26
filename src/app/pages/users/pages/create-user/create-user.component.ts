@@ -25,8 +25,6 @@ export class CreateUserComponent implements OnInit {
   ngOnInit(): void {}
 
   submitCreateUserForm(): void {
-    console.log(this.createUserForm.value.userName);
-
     let newUser = {
       userName: this.createUserForm.value.userName,
       password: this.createUserForm.value.password,

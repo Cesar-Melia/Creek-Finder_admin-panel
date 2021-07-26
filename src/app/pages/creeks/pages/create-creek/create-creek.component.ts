@@ -54,13 +54,16 @@ export class CreateCreekComponent implements OnInit {
 
     const selectedFile: any = (event.target as HTMLInputElement).files![0];
 
-    this.createCreekForm.patchValue({ img: selectedFile });
+    this.createCreekForm.patchValue({
+      img: selectedFile,
+    });
     this.createCreekForm.get('img')?.updateValueAndValidity();
 
     const reader = new FileReader();
     reader.onload = () => {
       this.imageURL = reader.result as string;
     };
+
     reader.readAsDataURL(selectedFile);
   }
 }
