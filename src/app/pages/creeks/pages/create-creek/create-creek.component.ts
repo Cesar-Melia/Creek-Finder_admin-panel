@@ -52,9 +52,9 @@ export class CreateCreekComponent implements OnInit {
       });
   }
 
-  // onFileSelected(event: { target: HTMLInputElement; }): void {
+  // onFileSelected(event: any): void {
   //   // console.log(event.target.files[0]);
-  //   const selectedFile = (event.target);
+  //   const selectedFile = (event.target as Element);
   //   this.createCreekForm.patchValue({ img: selectedFile });
   //   this.createCreekForm.get('img')?.updateValueAndValidity();
 
