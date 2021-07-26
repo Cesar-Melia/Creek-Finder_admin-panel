@@ -33,9 +33,7 @@ export class CreateUserComponent implements OnInit {
 
     this.createUser.createUser(newUser).subscribe((newUserData: User) => {
       console.log('Nuevo usuario creado', newUserData);
-      event.target.userName.value = '';
-      event.target.email.value = '';
-      event.target.password.value = '';
+      this.createUserForm.reset();
     });
   }
 }
