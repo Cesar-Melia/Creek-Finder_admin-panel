@@ -29,4 +29,8 @@ export class CreeksService {
   deleteCreek(creekId: string): any {
     return this.http.delete(`${this.API_URL}/creeks/delete/${creekId}`);
   }
+
+  editCreek(creekId: string, editCreek: Creek) {
+    return this.http.put(`${this.API_URL}/creeks/edit/${creekId}`, editCreek);
+  }
 }

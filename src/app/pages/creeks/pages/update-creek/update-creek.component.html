@@ -5,3 +5,54 @@
     </label>
     <input class="" type="submit" value="Buscar cala">
 </form>
+
+<section class="c-ckeeks__results">
+    <div *ngIf="isThereCreek" class="c-creek__item">
+        <form class="b-form" (submit)="submitEditCreek($event)">
+
+            <label for="type" class="b-form__block">
+                <p>Tipo de cala</p>
+                <select id="type" name="type" class="b-form__select">
+                    <option selected="selected" value=""></option>
+                    <option value="arena">Arena</option>
+                    <option value="rocas">Rocas</option>
+                    <option value="cantos rodados">Cantos rodados</option>
+                </select>
+            </label>
+
+            <label for="name" class="b-form__block">
+                <p>Nombre de Cala</p>
+                <input value="{{creekToUpdate.name}}" type="text" id="name" name="name" placeholder="Nombre de cala">
+            </label>
+
+            <label for="province" class="b-form__block">
+                <p>Provincia</p>
+                <input value="{{creekToUpdate.province}}" type="text" id="province" placeholder="province"
+                    name="province">
+            </label>
+
+            <label for="description" class="b-form__block">
+                <p>Descripción</p>
+                <input value="{{creekToUpdate.description}}" type="text" id="description" placeholder="description"
+                    name="password">
+            </label>
+
+            <label for="lat" class="b-form__block">
+                <p>Lat</p>
+                <input value="{{creekToUpdate.lat}}" type="number" id="lat" placeholder="Lat">
+            </label>
+
+            <label for="lng" class="b-form__block">
+                <p>Lat</p>
+                <input value="{{creekToUpdate.lat}}" type="number" id="lat" placeholder="Lat">
+            </label>
+
+            <label for="Img" class="b-form__block">
+                <p>Img</p>
+                <input value="{{creekToUpdate.img}}" type="file" id="img" placeholder="Img">
+            </label>
+
+            <input class="" type="submit" value="Editar cala">
+        </form>
+    </div>
+</section>
