@@ -1,1 +1,7 @@
-<!-- [formGroup]="create-creek-Form" (submit)="submitForm()" -->
+<form (submit)="submitCreateCreekForm($event)" class="b-form">
+    <label for="email" class="b-form__block">
+        <p>Buscar cala por id</p>
+        <input name="id" type="text" id="id" class="" placeholder="Id de usuario">
+    </label>
+    <input class="" type="submit" value="Buscar cala">
+</form>
