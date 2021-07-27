@@ -40,13 +40,14 @@ export class UpdateCreekComponent implements OnInit {
       let description;
       let lat;
       let lng;
+      let type;
 
       event.target.name.value
         ? (name = event.target.name.value)
         : (name = undefined);
 
-      event.target.img.value
-        ? (img = event.target.img.value)
+      event.target.img.files
+        ? (img = event.target.img.files)
         : (img = undefined);
 
       event.target.province.value
@@ -65,14 +66,18 @@ export class UpdateCreekComponent implements OnInit {
         ? (lng = event.target.lng.value)
         : (lng = undefined);
 
+      event.target.type.value
+        ? (type = event.target.type.value)
+        : (type = undefined);
+
       let editCreek = {
-        name: event.target.name.value,
-        province: event.target.province.value,
-        description: event.target.description.value,
-        lat: event.target.lat.value,
-        lng: event.target.lng.value,
-        type: event.target.type.value,
-        img: event.target.img.value,
+        name,
+        province,
+        description,
+        lat,
+        lng,
+        type,
+        img,
       };
 
       this.creekService
