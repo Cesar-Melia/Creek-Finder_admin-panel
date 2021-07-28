@@ -24,9 +24,7 @@ export class CreateUserComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  submitCreateUserForm(): void {
-    console.log(this.createUserForm.value.userName);
-
+  submitCreateUserForm(event: any): void {
     let newUser = {
       userName: this.createUserForm.value.userName,
       password: this.createUserForm.value.password,
@@ -35,6 +33,7 @@ export class CreateUserComponent implements OnInit {
 
     this.createUser.createUser(newUser).subscribe((newUserData: User) => {
       console.log('Nuevo usuario creado', newUserData);
+      this.createUserForm.reset();
     });
   }
 }

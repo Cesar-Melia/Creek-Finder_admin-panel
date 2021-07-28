@@ -27,11 +27,10 @@ export class UsersService {
   }
 
   deleteUser(userId: string): Observable<User> {
-    console.log('soy el delete', userId);
     return this.http.delete<User>(`${this.API_URL}/users/delete/${userId}`);
   }
 
   editUser(userId: string, editUser: User) {
-    return this.http.put(`${this.API_URL}/users/edit/${userId}`, editUser)
+    return this.http.put(`${this.API_URL}/users/edit/${userId}`, editUser);
   }
 }

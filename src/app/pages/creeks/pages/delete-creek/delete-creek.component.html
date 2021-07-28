@@ -1,1 +1,10 @@
 <!-- [formGroup]="create-creek-Form" (submit)="submitForm()" -->
+<form [formGroup]="deleteCreekForm" (submit)="submitDeleteCreekForm($event)" class="b-form">
+    <label for="email" class="b-form__block">
+        <p>Buscar cala por id</p>
+        <input formControlName="id" type="text" id="id" class="" placeholder="Id de usuario" name="id">
+    </label>
+    <input class="" type="submit" value="Borrar cala">
+
+
+</form>

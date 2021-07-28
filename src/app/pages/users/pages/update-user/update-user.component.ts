@@ -65,6 +65,11 @@ export class UpdateUserComponent implements OnInit {
         .editUser(this.userId, editedUser)
         .subscribe((editedUserData: any) => {
           console.log(editedUserData);
+
+          event.target.role.select = '';
+          event.target.userName.value = '';
+          event.target.email.value = '';
+          event.target.password.value = '';
         });
     }
   }

@@ -2,7 +2,7 @@ import { Comment } from '../../comments/models/Comment';
 
 export interface Creek {
   name: string;
-  img: [string];
+  img?: any; // [],
   province: string;
   type: string;
   description: string;

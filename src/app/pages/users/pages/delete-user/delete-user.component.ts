@@ -5,38 +5,32 @@ import { UsersService } from '../../services/users.service';
 @Component({
   selector: 'app-delete-user',
   templateUrl: './delete-user.component.html',
-  styleUrls: ['./delete-user.component.scss']
+  styleUrls: ['./delete-user.component.scss'],
 })
 export class DeleteUserComponent implements OnInit {
-
   deleteUserForm: FormGroup;
 
   constructor(
     private formBuilder: FormBuilder,
-    private deletUserService: UsersService,
-
+    private userService: UsersService
   ) {
     this.deleteUserForm = this.formBuilder.group({
       id: ['', [Validators.required]],
-      userName: ['', [Validators.required]],
     });
-
   }
 
-  ngOnInit(): void {
-
-  }
+  ngOnInit(): void {}
 
   submitDeleteUserForm(event: any): void {
+    event.preventDefault();
+
     if (confirm('Estas seguro de querer borrar al usuario?')) {
-      this.deletUserService.deleteUser(event.target.id.value)
+      this.userService
+        .deleteUser(event.target.id.value)
         .subscribe((deleteUserData: any) => {
-          console.log(deleteUserData)
-        })
-
+          event.target.userId.value = '';
+        });
     }
-    console.log(this.deleteUserForm)
-
+    console.log(this.deleteUserForm);
   }
-
 }
