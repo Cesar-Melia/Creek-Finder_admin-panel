@@ -46,9 +46,10 @@ export class UpdateCreekComponent implements OnInit {
         ? (name = event.target.name.value)
         : (name = undefined);
 
-      event.target.img.files
-        ? (img = event.target.img.files)
-        : (img = undefined);
+      // event.target.img.files
+      //   ? (img = event.target.img.files)
+      //   : (img = undefined);
+      console.log('imagen', event.target.img.files);
 
       event.target.province.value
         ? (province = event.target.province.value)
@@ -77,11 +78,18 @@ export class UpdateCreekComponent implements OnInit {
         lat,
         lng,
         type,
-        img,
+        img: event.target.img.files[0] ? event.target.img.files[0] : undefined,
       };
+      console.log('editCreek', editCreek);
+
+      const form = new FormData();
+
+      Object.entries(editCreek).forEach((field) =>
+        form.append(field[0], field[1])
+      );
 
       this.creekService
-        .editCreek(this.creekId, editCreek)
+        .editCreek(this.creekId, form)
         .subscribe((editedCreekData: any) => {
           console.log(editedCreekData);
         });

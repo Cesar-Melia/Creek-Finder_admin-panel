@@ -8,7 +8,7 @@
 
 <section class="c-ckeeks__results">
     <div *ngIf="isThereCreek" class="c-creek__item">
-        <form class="b-form" (submit)="submitEditCreek($event)">
+        <form class="b-form" (submit)="submitEditCreek($event)" enctype="multipart/form-data">
 
             <label for="type" class="b-form__block">
                 <p>Tipo de cala</p>
@@ -39,12 +39,12 @@
 
             <label for="lat" class="b-form__block">
                 <p>Lat</p>
-                <input value="{{creekToUpdate.lat}}" type="number" id="lat" placeholder="Lat">
+                <input value="{{creekToUpdate.lat}}" type="number" id="lat" name="lat" placeholder="Lat">
             </label>
 
             <label for="lng" class="b-form__block">
-                <p>Lat</p>
-                <input value="{{creekToUpdate.lat}}" type="number" id="lat" placeholder="Lat">
+                <p>Lng</p>
+                <input value="{{creekToUpdate.lat}}" type="number" id="lng" name="lng" placeholder="Lat">
             </label>
 
             <label for="Img" class="b-form__block">

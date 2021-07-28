@@ -30,7 +30,7 @@ export class CreeksService {
     return this.http.delete(`${this.API_URL}/creeks/delete/${creekId}`);
   }
 
-  editCreek(creekId: string, editCreek: Creek) {
+  editCreek(creekId: string, editCreek: any) {
     return this.http.put(`${this.API_URL}/creeks/edit/${creekId}`, editCreek);
   }
 }
