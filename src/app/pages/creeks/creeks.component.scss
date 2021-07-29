@@ -27,6 +27,17 @@
   &__link {
     margin-left: 15px;
 
+    &--update {
+      background-color: transparent;
+      border: none;
+      color: var(--color-blue-dark);
+      cursor: pointer;
+
+      &:hover {
+        color: var(--color-blue-logo);
+      }
+    }
+
     &--delete {
       background-color: transparent;
       border: none;

@@ -8,6 +8,7 @@ import { CreeksComponent } from './creeks.component';
 const routes: Routes = [
   { path: '', component: CreeksComponent },
   { path: 'create-creek', component: CreateCreekComponent },
+  { path: 'update-creek/:creekId', component: UpdateCreekComponent },
   { path: 'update-creek', component: UpdateCreekComponent },
   { path: 'delete-creek', component: DeleteCreekComponent },
 ];
@@ -16,4 +17,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule],
 })
-export class CreekRoutingModule { }
+export class CreekRoutingModule {}

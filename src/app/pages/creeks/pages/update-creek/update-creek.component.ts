@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { CreeksService } from '../../services/creeks.service';
 
 @Component({
@@ -11,18 +12,36 @@ export class UpdateCreekComponent implements OnInit {
   isThereCreek: Boolean;
   creekId: string;
 
-  constructor(private creekService: CreeksService) {
+  constructor(
+    private route: ActivatedRoute,
+    private creeksService: CreeksService
+  ) {
     this.creekToUpdate = '';
     this.isThereCreek = false;
     this.creekId = '';
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.route.paramMap.subscribe((params: any) => {
+      this.creekId = params.get('creekId');
+    });
+    this.getCreekFromParams();
+  }
 
-  submitCreateCreekForm(event: any): void {
+  submitSelectCreekForm(event: any): void {
     this.creekId = event.target.id.value;
-    this.creekService
+    this.creeksService
       .getCreekId(event.target.id.value)
+      .subscribe((creekIdData: any) => {
+        console.log(creekIdData);
+        this.creekToUpdate = creekIdData;
+        this.isThereCreek = true;
+      });
+  }
+
+  getCreekFromParams(): void {
+    this.creeksService
+      .getCreekId(this.creekId)
       .subscribe((creekIdData: any) => {
         console.log(creekIdData);
         this.creekToUpdate = creekIdData;
@@ -88,7 +107,7 @@ export class UpdateCreekComponent implements OnInit {
         form.append(field[0], field[1])
       );
 
-      this.creekService
+      this.creeksService
         .editCreek(this.creekId, form)
         .subscribe((editedCreekData: any) => {
           console.log(editedCreekData);

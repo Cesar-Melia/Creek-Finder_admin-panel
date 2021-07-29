@@ -1,7 +1,7 @@
-<form (submit)="submitCreateCreekForm($event)" class="b-form">
+<form (submit)="submitSelectCreekForm($event)" class="b-form">
     <label for="email" class="b-form__block">
         <p>Buscar cala por id</p>
-        <input name="id" type="text" id="id" class="" placeholder="Id de usuario">
+        <input name="id" type="text" id="id" class="" placeholder="Id de usuario" value={{creekId}}>
     </label>
     <input class="" type="submit" value="Buscar cala">
 </form>
@@ -22,29 +22,32 @@
 
             <label for="name" class="b-form__block">
                 <p>Nombre de Cala</p>
-                <input value="{{creekToUpdate.name}}" type="text" id="name" name="name" placeholder="Nombre de cala">
+                <input value="{{creekToUpdate.name}}" type="text" id="name" name="name"
+                    placeholder="Nombre de cala">
             </label>
 
             <label for="province" class="b-form__block">
                 <p>Provincia</p>
-                <input value="{{creekToUpdate.province}}" type="text" id="province" placeholder="province"
-                    name="province">
+                <input value="{{creekToUpdate.province}}" type="text" id="province"
+                    placeholder="province" name="province">
             </label>
 
             <label for="description" class="b-form__block">
                 <p>Descripción</p>
-                <input value="{{creekToUpdate.description}}" type="text" id="description" placeholder="description"
-                    name="password">
+                <input value="{{creekToUpdate.description}}" type="text" id="description"
+                    placeholder="description" name="password">
             </label>
 
             <label for="lat" class="b-form__block">
                 <p>Lat</p>
-                <input value="{{creekToUpdate.lat}}" type="number" id="lat" name="lat" placeholder="Lat">
+                <input value="{{creekToUpdate.lat}}" type="number" id="lat" name="lat"
+                    placeholder="Lat">
             </label>
 
             <label for="lng" class="b-form__block">
                 <p>Lng</p>
-                <input value="{{creekToUpdate.lat}}" type="number" id="lng" name="lng" placeholder="Lat">
+                <input value="{{creekToUpdate.lat}}" type="number" id="lng" name="lng"
+                    placeholder="Lat">
             </label>
 
             <label for="Img" class="b-form__block">
