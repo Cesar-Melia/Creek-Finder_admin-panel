@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { CreateCreekComponent } from './pages/create-creek/create-creek.component';
 import { UpdateCreekComponent } from './pages/update-creek/update-creek.component';
-import { DeleteCreekComponent } from './pages/delete-creek/delete-creek.component';
 import { CreeksComponent } from './creeks.component';
 
 const routes: Routes = [
@@ -10,7 +9,6 @@ const routes: Routes = [
   { path: 'create-creek', component: CreateCreekComponent },
   { path: 'update-creek/:creekId', component: UpdateCreekComponent },
   { path: 'update-creek', component: UpdateCreekComponent },
-  { path: 'delete-creek', component: DeleteCreekComponent },
 ];
 
 @NgModule({
