@@ -1,7 +1,7 @@
 <form (submit)="submitCreateUserForm($event)" class="b-form">
   <label for="email" class="b-form__block">
     <p>Buscar usuario por id</p>
-    <input name="id" type="text" id="id" class="" placeholder="Id de usuario">
+    <input name="id" type="text" id="id" value={{userId}} placeholder="Id de usuario">
   </label>
   <input class="" type="submit" value="Buscar usuario">
 </form>
@@ -28,14 +28,12 @@
 
       <label for="email" class="b-form__block">
         <p>Email</p>
-        <input value="{{userToUpdate.email}}" type="email" id="email" placeholder="Email"
-          name="email">
+        <input value="{{userToUpdate.email}}" type="email" id="email" placeholder="Email" name="email">
       </label>
 
       <label for="password" class="b-form__block">
         <p>Contraseña</p>
-        <input value="{{userToUpdate.password}}" type="text" id="password" placeholder="Password"
-          name="password">
+        <input value="{{userToUpdate.password}}" type="text" id="password" placeholder="Password" name="password">
       </label>
 
       <label for="role" class="b-form__block">

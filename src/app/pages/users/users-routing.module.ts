@@ -9,6 +9,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 const routes: Routes = [
   { path: '', component: UsersComponent },
   { path: 'create-user', component: CreateUserComponent },
+  { path: 'update-user/:userId', component: UpdateUserComponent },
   { path: 'update-user', component: UpdateUserComponent },
   { path: 'delete-user', component: DeleteUserComponent },
 ];

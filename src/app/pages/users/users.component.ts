@@ -66,4 +66,10 @@ export class UsersComponent implements OnInit {
 
     this.filteredUsers = this.users;
   }
+
+  editUser(userId: any): void {
+
+    this.usersService.userlinkid = userId;
+    console.log(this.usersService.userlinkid);
+  }
 }

@@ -3,8 +3,8 @@
 
     <label for="userName" class="b-filter-form__label">
       <span>N. Usuario</span>
-      <input [(ngModel)]="filter.userName" (input)="filterUser()" type="text" id="userName"
-        name="userName" class="b-filter-form__input" placeholder="Nombre">
+      <input [(ngModel)]="filter.userName" (input)="filterUser()" type="text" id="userName" name="userName"
+        class="b-filter-form__input" placeholder="Nombre">
     </label>
 
     <label for="email" class="b-filter-form__label">
@@ -15,8 +15,7 @@
 
     <label for="role" class="b-filter-form__label">
       <span>Rol</span>
-      <select [(ngModel)]="filter.role" (change)="filterUser()" name="role" id="role"
-        class="b-filter-form__input">
+      <select [(ngModel)]="filter.role" (change)="filterUser()" name="role" id="role" class="b-filter-form__input">
         <option value=""></option>
         <option value="user">Usuario</option>
         <option value="admin">Admin</option>
@@ -26,8 +25,8 @@
 
     <label for="id" class="b-filter-form__label">
       <span>Id</span>
-      <input [(ngModel)]="filter.id" (input)="filterUser()" type="text" id="id" name="id"
-        class="b-filter-form__input" placeholder="Id">
+      <input [(ngModel)]="filter.id" (input)="filterUser()" type="text" id="id" name="id" class="b-filter-form__input"
+        placeholder="Id">
     </label>
 
   </div>
@@ -43,7 +42,7 @@
       <span class="c-users__id"> {{user._id}} </span>
     </div>
     <div class="c-users__actions">
-      <a routerLink="/users/update-creek" class="c-users__link">Update</a>
+      <a routerLink="/users/update-user/{{user._id}}" class="c-users__link">Update</a>
       <button (click)="delete(user._id)" class="c-users__link c-users__link--delete">Delete</button>
     </div>
 

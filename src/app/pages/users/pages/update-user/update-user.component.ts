@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { UsersService } from '../../services/users.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-update-user',
@@ -12,19 +13,34 @@ export class UpdateUserComponent implements OnInit {
   isThereUser: Boolean;
   userId: string;
 
-  constructor(private userService: UsersService) {
+  constructor(private userService: UsersService, private route: ActivatedRoute) {
     this.userId = '';
     this.userToUpdate = '';
     this.isThereUser = false;
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.route.paramMap.subscribe((params: any) => {
+      this.userId = params.get('userId');
+      this.getUserFromParams();
+    })
+  }
 
   submitCreateUserForm(event: any): void {
     this.userId = event.target.id.value;
 
     this.userService
       .getUsersId(event.target.id.value)
+      .subscribe((userIdData: any) => {
+        console.log(userIdData);
+        this.userToUpdate = userIdData;
+        this.isThereUser = true;
+      });
+  }
+
+  getUserFromParams(): void {
+    this.userService
+      .getUsersId(this.userId)
       .subscribe((userIdData: any) => {
         console.log(userIdData);
         this.userToUpdate = userIdData;

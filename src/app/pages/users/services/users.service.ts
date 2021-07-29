@@ -10,9 +10,12 @@ import { User } from '../models/User';
 export class UsersService {
   API_URL: string;
 
+
   constructor(private http: HttpClient) {
     this.API_URL = environment.API_URL;
+
   }
+  userlinkid: any;
 
   getUsers(): Observable<User[]> {
     return this.http.get<User[]>(`${this.API_URL}/users`);
