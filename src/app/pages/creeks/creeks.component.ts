@@ -18,32 +18,8 @@ export class CreeksComponent implements OnInit {
   constructor(private creeksService: CreeksService) {
     this.creeks = [];
     this.filteredCreeks = [];
-    this.types = ['', 'arena', 'rocas', 'cantos rodados'];
-    this.provinces = [
-      '',
-      'Alicante',
-      'Almería',
-      'Asturias',
-      'Barcelona',
-      'Cádiz',
-      'Cantabria',
-      'Castellón',
-      'La Coruña',
-      'Gerona',
-      'Granada',
-      'Guipúzcoa',
-      'Huelva',
-      'Islas Baleares',
-      'Lugo',
-      'Málaga',
-      'Murcia',
-      'Las Palmas',
-      'Pontevedra',
-      'Tarragona',
-      'Santa Cruz de Tenerife',
-      'Valencia',
-      'Vizcaya',
-    ];
+    this.types = this.creeksService.types;
+    this.provinces = this.creeksService.provinces;
 
     this.filter = { name: '', province: '', type: '', id: '' };
   }

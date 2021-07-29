@@ -9,9 +9,37 @@ import { Creek } from '../models/Creek';
 })
 export class CreeksService {
   API_URL: string;
+  types: string[];
+  provinces: string[];
 
   constructor(private http: HttpClient) {
     this.API_URL = environment.API_URL;
+    this.types = ['', 'arena', 'rocas', 'cantos rodados'];
+    this.provinces = [
+      '',
+      'Alicante',
+      'Almería',
+      'Asturias',
+      'Barcelona',
+      'Cádiz',
+      'Cantabria',
+      'Castellón',
+      'La Coruña',
+      'Gerona',
+      'Granada',
+      'Guipúzcoa',
+      'Huelva',
+      'Islas Baleares',
+      'Lugo',
+      'Málaga',
+      'Murcia',
+      'Las Palmas',
+      'Pontevedra',
+      'Tarragona',
+      'Santa Cruz de Tenerife',
+      'Valencia',
+      'Vizcaya',
+    ];
   }
 
   getCreeks(): Observable<Creek[]> {

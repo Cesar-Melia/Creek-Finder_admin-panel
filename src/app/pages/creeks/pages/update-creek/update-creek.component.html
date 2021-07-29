@@ -10,26 +10,25 @@
     <div *ngIf="isThereCreek" class="c-creek__item">
         <form class="b-form" (submit)="submitEditCreek($event)" enctype="multipart/form-data">
 
-            <label for="type" class="b-form__block">
-                <p>Tipo de cala</p>
-                <select id="type" name="type" class="b-form__select">
-                    <option selected="selected" value=""></option>
-                    <option value="arena">Arena</option>
-                    <option value="rocas">Rocas</option>
-                    <option value="cantos rodados">Cantos rodados</option>
-                </select>
-            </label>
-
             <label for="name" class="b-form__block">
                 <p>Nombre de Cala</p>
                 <input value="{{creekToUpdate.name}}" type="text" id="name" name="name"
                     placeholder="Nombre de cala">
             </label>
 
+            <label for="type" class="b-form__block">
+                <p>Tipo de cala</p>
+                <select id="type" name="type" class="b-form__select">
+                    <option [value]="type" *ngFor="let type of types">{{type}}</option>
+                </select>
+            </label>
+
             <label for="province" class="b-form__block">
                 <p>Provincia</p>
-                <input value="{{creekToUpdate.province}}" type="text" id="province"
-                    placeholder="province" name="province">
+                <select id="province" name="province" class="b-form__select">
+                    <option [value]="province" *ngFor="let province of provinces">{{province}}
+                    </option>
+                </select>
             </label>
 
             <label for="description" class="b-form__block">

@@ -11,6 +11,8 @@ export class UpdateCreekComponent implements OnInit {
   creekToUpdate: any;
   isThereCreek: Boolean;
   creekId: string;
+  types: string[];
+  provinces: string[];
 
   constructor(
     private route: ActivatedRoute,
@@ -19,6 +21,8 @@ export class UpdateCreekComponent implements OnInit {
     this.creekToUpdate = '';
     this.isThereCreek = false;
     this.creekId = '';
+    this.types = this.creeksService.types;
+    this.provinces = this.creeksService.provinces;
   }
 
   ngOnInit(): void {
@@ -33,7 +37,6 @@ export class UpdateCreekComponent implements OnInit {
     this.creeksService
       .getCreekId(event.target.id.value)
       .subscribe((creekIdData: any) => {
-        console.log(creekIdData);
         this.creekToUpdate = creekIdData;
         this.isThereCreek = true;
       });
@@ -53,59 +56,27 @@ export class UpdateCreekComponent implements OnInit {
     if (
       confirm('Está seguro de actualizar la cala:' + event.target.name.value)
     ) {
-      let name;
-      let img;
-      let province;
-      let description;
-      let lat;
-      let lng;
-      let type;
-
-      event.target.name.value
-        ? (name = event.target.name.value)
-        : (name = undefined);
-
-      // event.target.img.files
-      //   ? (img = event.target.img.files)
-      //   : (img = undefined);
-      console.log('imagen', event.target.img.files);
-
-      event.target.province.value
-        ? (province = event.target.province.value)
-        : (province = undefined);
-
-      event.target.description.value
-        ? (description = event.target.description.value)
-        : (description = undefined);
-
-      event.target.lat.value
-        ? (lat = event.target.lat.value)
-        : (lat = undefined);
-
-      event.target.lng.value
-        ? (lng = event.target.lng.value)
-        : (lng = undefined);
-
-      event.target.type.value
-        ? (type = event.target.type.value)
-        : (type = undefined);
-
       let editCreek = {
-        name,
-        province,
-        description,
-        lat,
-        lng,
-        type,
+        name: event.target.name.value ? event.target.name.value : undefined,
+        province: event.target.province.value
+          ? event.target.province.value
+          : undefined,
+        description: event.target.description.value
+          ? event.target.description.value
+          : undefined,
+        lat: event.target.lat.value ? event.target.lat.value : undefined,
+        lng: event.target.lng.value ? event.target.lng.value : undefined,
+        type: event.target.type.value ? event.target.type.value : undefined,
         img: event.target.img.files[0] ? event.target.img.files[0] : undefined,
       };
       console.log('editCreek', editCreek);
 
       const form = new FormData();
 
-      Object.entries(editCreek).forEach((field) =>
-        form.append(field[0], field[1])
-      );
+      Object.entries(editCreek).forEach((field) => {
+        console.log('field: ', field);
+        return field[1] !== undefined && form.append(field[0], field[1]);
+      });
 
       this.creeksService
         .editCreek(this.creekId, form)
