@@ -35,5 +35,7 @@ export class CreateUserComponent implements OnInit {
       console.log('Nuevo usuario creado', newUserData);
       this.createUserForm.reset();
     });
+
+    this.createUserForm.reset();
   }
 }

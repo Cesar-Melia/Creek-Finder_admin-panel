@@ -1,11 +1,12 @@
 <form [formGroup]="loginForm" (submit)="submitForm()" class="b-form">
   <label for="email" class="b-form__block">
     <p>Email</p>
-    <input formControlName="email" type="email" id="email" class="" placeholder="Email">
+    <input formControlName="email" type="email" id="email" name="email" placeholder="Email">
   </label>
   <label for="password" class="b-form__block">
     <p>Password</p>
-    <input formControlName="password" type="password" id="password" class="" placeholder="Password">
+    <input formControlName="password" type="password" id="password" name="password"
+      placeholder="Password">
   </label>
   <input class="" type="submit" value="Login">
 </form>

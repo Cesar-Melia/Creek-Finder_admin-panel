@@ -20,17 +20,15 @@ export class LoginComponent implements OnInit {
     });
   }
 
-  ngOnInit(): void { }
+  ngOnInit(): void {}
 
   submitForm(): void {
-    console.log('Campos formulario: ', this.loginForm);
-    console.log('Campo email: ', this.loginForm.value.email);
-    console.log('Campo password: ', this.loginForm.value.password);
-
     this.authService
       .login(this.loginForm.value.email, this.loginForm.value.password)
       .subscribe((loginData: any) => {
-        console.log('Usuario logueado: ', loginData);
+        console.log('Login Data: ', loginData);
       });
+
+    this.loginForm.reset();
   }
 }

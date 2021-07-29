@@ -81,5 +81,9 @@
     @media (min-width: 992px) {
       margin-right: 50px;
     }
+
+    &:hover {
+      cursor: pointer;
+    }
   }
 }

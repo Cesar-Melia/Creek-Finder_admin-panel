@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 import { Observable } from 'rxjs';
-import { User } from '../../pages/users/models/User';
 
 @Injectable({
   providedIn: 'root',
@@ -14,11 +13,42 @@ export class AuthService {
     this.API_URL = environment.API_URL;
   }
 
-  login(email: string, password: string) {
-    let body: Object = { email, password };
+  login(email: string, password: string): any {
+    try {
+      let body = { email, password };
 
-    return this.http.post(`${this.API_URL}/auth/login`, body);
+      return this.http.post(`${this.API_URL}/auth/login`, body, {
+        withCredentials: true,
+      });
+    } catch (error) {
+      console.log('Login error: ', error);
+    }
   }
 
-  ///logout
+  checksession(): any {
+    try {
+      this.http
+        .get(`${this.API_URL}/users/logged`, {
+          withCredentials: true,
+        })
+        .subscribe((userData: any) => {
+          console.log('User Data: ', userData);
+
+          return userData;
+        });
+    } catch (error) {
+      console.log('Check session error: ', error);
+      return undefined;
+    }
+  }
+
+  logout(): any {
+    try {
+      return this.http.post(`${this.API_URL}/auth/logout`, {
+        withCredentials: true,
+      });
+    } catch (error) {
+      return console.log('Logout error: ', error);
+    }
+  }
 }
