@@ -11,16 +11,22 @@ import { Creek } from '../../models/Creek';
 export class CreateCreekComponent implements OnInit {
   createCreekForm: FormGroup;
   imageURL: string;
+  types: string[];
+  provinces: string[];
+  image: any;
 
   constructor(
     private creeksService: CreeksService,
     private formBuilder: FormBuilder
   ) {
     this.imageURL = '';
+    this.types = this.creeksService.types;
+    this.provinces = this.creeksService.provinces;
+    this.image = null;
 
     this.createCreekForm = this.formBuilder.group({
       name: ['', [Validators.required]],
-      img: [null, [Validators.required]],
+      // img: [null, [Validators.required]],
       province: ['', [Validators.required]],
       type: ['', [Validators.required]],
       description: ['', [Validators.required]],
@@ -28,44 +34,31 @@ export class CreateCreekComponent implements OnInit {
       lng: ['', [Validators.required]],
     });
   }
-  ///////
 
-  ngOnInit(): void { }
+  ngOnInit(): void {}
 
-  submitForm(): void {
+  submitForm(event: any): void {
+    console.log(event);
     let newCreek = {
       name: this.createCreekForm.value.name,
-      img: this.createCreekForm.value.img,
+      img: event.target.img.files[0],
       province: this.createCreekForm.value.province,
       type: this.createCreekForm.value.type,
       description: this.createCreekForm.value.description,
       lat: this.createCreekForm.value.lat,
       lng: this.createCreekForm.value.lng,
     };
-    this.creeksService
-      .postCreek(newCreek)
-      .subscribe((createCreekData: Creek) => {
-        console.log('Cala creada: ', createCreekData);
-      });
-  }
+    console.log('img: ', this.createCreekForm.value.img);
 
-  onFileSelected(event: Event): void {
-    console.log('imagen: ', (event.target as HTMLInputElement).files![0]);
+    const form = new FormData();
 
-    const selectedFile: any = (event.target as HTMLInputElement).files![0];
-
-    this.createCreekForm.patchValue({
-      img: selectedFile,
+    Object.entries(newCreek).forEach((field) => {
+      console.log('field: ', field);
+      return form.append(field[0], field[1]);
     });
-    this.createCreekForm.get('img')?.updateValueAndValidity();
 
-    const reader = new FileReader();
-    reader.onload = () => {
-      this.imageURL = reader.result as string;
-    };
-
-    reader.readAsDataURL(selectedFile);
+    this.creeksService.postCreek(form).subscribe((createCreekData: Creek) => {
+      console.log('Cala creada: ', createCreekData);
+    });
   }
 }
-
-// https://stackoverflow.com/questions/43951090/typescript-object-is-possibly-null/43960039

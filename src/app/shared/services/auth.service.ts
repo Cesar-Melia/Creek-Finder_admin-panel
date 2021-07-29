@@ -34,11 +34,10 @@ export class AuthService {
         .subscribe((userData: any) => {
           console.log('User Data: ', userData);
 
-          return userData;
+          return userData.userName;
         });
     } catch (error) {
       console.log('Check session error: ', error);
-      return undefined;
     }
   }
 

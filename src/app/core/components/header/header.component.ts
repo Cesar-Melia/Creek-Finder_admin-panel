@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, SimpleChanges } from '@angular/core';
 import { AuthService } from 'src/app/shared/services/auth.service';
 
 @Component({
@@ -20,16 +20,16 @@ export class HeaderComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    const checkUser = async () => {
-      this.userLogged = await this.authService.checksession();
-
-      this.userLogged && (this.isAuth = true);
-
-      console.log('Usuario logueado: ', this.userLogged);
-    };
-
-    checkUser();
+    this.checkUser();
   }
+
+  checkUser = async () => {
+    this.userLogged = await this.authService.checksession();
+
+    this.userLogged && (this.isAuth = true);
+
+    console.log('Usuario logueado: ', this.userLogged);
+  };
 
   activateMenu(): void {
     this.menuActive = !this.menuActive;
