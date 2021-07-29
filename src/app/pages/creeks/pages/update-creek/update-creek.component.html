@@ -33,25 +33,27 @@
 
             <label for="description" class="b-form__block">
                 <p>Descripción</p>
-                <input value="{{creekToUpdate.description}}" type="text" id="description"
-                    placeholder="description" name="password">
+                <textarea value="{{creekToUpdate.description}}" id="description"
+                    placeholder="description" name="descripcion" rows="5" cols="30"
+                    class="b-form__textarea"></textarea>
             </label>
 
             <label for="lat" class="b-form__block">
-                <p>Lat</p>
+                <p>Latitud</p>
                 <input value="{{creekToUpdate.lat}}" type="number" id="lat" name="lat"
                     placeholder="Lat">
             </label>
 
             <label for="lng" class="b-form__block">
-                <p>Lng</p>
+                <p>Longitud</p>
                 <input value="{{creekToUpdate.lat}}" type="number" id="lng" name="lng"
                     placeholder="Lat">
             </label>
 
             <label for="Img" class="b-form__block">
-                <p>Img</p>
-                <input value="{{creekToUpdate.img}}" type="file" id="img" placeholder="Img">
+                <p>Imagen</p>
+                <input value="{{creekToUpdate.img}}" type="file" id="img" placeholder="Img"
+                    class="b-form__img-input">
             </label>
 
             <input class="" type="submit" value="Editar cala">

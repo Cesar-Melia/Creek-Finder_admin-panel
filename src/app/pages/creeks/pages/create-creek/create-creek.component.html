@@ -1,36 +1,36 @@
 <form [formGroup]="createCreekForm" (submit)="submitForm()" class="b-form">
 
     <label for="name" class="b-form__block">
-        <p>Nombre</p>
+        <p>Nombre de Cala</p>
         <input formControlName="name" type="text" id="name" placeholder="creek name">
     </label>
 
 
     <label for="type" class="b-form__block">
-        <p>tipo</p>
+        <p>Tipo de Cala</p>
         <input formControlName="type" type="text" id="type" placeholder="tipo">
     </label>
 
 
     <label for="description" class="b-form__block">
-        <p>descripción</p>
+        <p>Descripción</p>
         <input formControlName="description" type="text" id="description" placeholder="descripcion">
     </label>
 
 
     <label for="lat" class="b-form__block">
-        <p>latitud</p>
+        <p>Latitud</p>
         <input formControlName="lat" type="text" id="lat" placeholder="latitud">
     </label>
 
 
     <label for="lng" class="b-form__block">
-        <p>longitud</p>
+        <p>Longitud</p>
         <input formControlName="lng" type="text" id="lng" placeholder="longitud">
     </label>
 
     <label for="img" class="b-form__block">
-        <p>imagen</p>
+        <p>Imagen</p>
         <input accept="image/*" type="file" id="img" placeholder="imagen" class="b-form__img-input"
             (change)="onFileSelected($event)">
     </label>
