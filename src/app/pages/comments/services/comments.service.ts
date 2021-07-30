@@ -15,13 +15,18 @@ export class CommentsService {
   }
 
   getComments(): Observable<Comment[]> {
-    return this.http.get<Comment[]>(`${this.API_URL}/comments`);
+    return this.http.get<Comment[]>(`${this.API_URL}/comments`, {
+      withCredentials: true,
+    });
   }
 
   deleteComment(commentId: string): Observable<Comment> {
     console.log('soy el delete', commentId);
     return this.http.delete<Comment>(
-      `${this.API_URL}/comments/delete/${commentId}`
+      `${this.API_URL}/comments/delete/${commentId}`,
+      {
+        withCredentials: true,
+      }
     );
   }
 }

@@ -43,22 +43,32 @@ export class CreeksService {
   }
 
   getCreeks(): Observable<Creek[]> {
-    return this.http.get<Creek[]>(`${this.API_URL}/creeks`);
+    return this.http.get<Creek[]>(`${this.API_URL}/creeks`, {
+      withCredentials: true,
+    });
   }
 
   getCreekId(creekId: string): Observable<Creek[]> {
-    return this.http.get<Creek[]>(`${this.API_URL}/creeks/${creekId}`);
+    return this.http.get<Creek[]>(`${this.API_URL}/creeks/${creekId}`, {
+      withCredentials: true,
+    });
   }
 
   postCreek(newCreek: FormData): any {
-    return this.http.post(`${this.API_URL}/creeks/create`, newCreek);
+    return this.http.post(`${this.API_URL}/creeks/create`, newCreek, {
+      withCredentials: true,
+    });
   }
 
   deleteCreek(creekId: string): any {
-    return this.http.delete(`${this.API_URL}/creeks/delete/${creekId}`);
+    return this.http.delete(`${this.API_URL}/creeks/delete/${creekId}`, {
+      withCredentials: true,
+    });
   }
 
   editCreek(creekId: string | null, editCreek: any) {
-    return this.http.put(`${this.API_URL}/creeks/edit/${creekId}`, editCreek);
+    return this.http.put(`${this.API_URL}/creeks/edit/${creekId}`, editCreek, {
+      withCredentials: true,
+    });
   }
 }
